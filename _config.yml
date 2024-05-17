@@ -118,9 +118,6 @@ author:
   location         : "South-Korea"
   email            : "duwnstj12@naver.com"
   links:
-    - label: "Email"
-      icon: "fas fa-fw fa-envelope-square"
-      url: "mailto: duwnstj12@naver.com"
     - label: "Website"
       icon: "fas fa-fw fa-link"
       url: "https://velog.io/@duwnstj12"
