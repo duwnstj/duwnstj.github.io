@@ -118,7 +118,7 @@ author:
   location         : "South-Korea"
   email            : "duwnstj12@naver.com"
   links:
-    - label: "다른블로그"
+    - label: "다른 블로그"
       icon: "fas fa-fw fa-link"
       url: "https://velog.io/@duwnstj12"
     - label: "GitHub"
