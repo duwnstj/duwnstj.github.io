@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "git에대해 알아보자"
-categories: Git
+categories: [Git]
 tag: [git,github,gitblog]
 toc: true
 author_profile: false
@@ -50,5 +50,9 @@ last_modified_at: 2024-05-23
 >이러한 특징들 때문에 Git을 많이 쓰게 되었다.
 
 ## 2-4 분산형 버전 관리 시스템
+분산형 버전 관리 시스템이란 모든 사용자가 파일 전체의 복사본을 가지고 있으며, 독립적으로 작업하여 변경 내용을 서버에 공유하는 형식의 시스템이다.<br>
+대표적인 예시로 앞서 말한 Git이 있고, 위 특징 덕분에 중앙 집중식보다 대규모 프로젝트에 적합하다.<br>
+
+
 
 
