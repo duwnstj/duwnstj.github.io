@@ -3,7 +3,6 @@ layout: single
 title: "git에대해 알아보자"
 categories: [Github]
 tag: [git,github,gitblog]
-toc: true
 author_profile: false
 sidebar:
     nav: "docs"

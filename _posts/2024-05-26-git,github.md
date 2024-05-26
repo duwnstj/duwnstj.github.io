@@ -3,7 +3,6 @@ layout: single
 title: "git,github의 사용법"
 categories: [Github]
 tag: [git,github,gitblog]
-toc: true
 author_profile: false
 sidebar:
     nav: "docs"
