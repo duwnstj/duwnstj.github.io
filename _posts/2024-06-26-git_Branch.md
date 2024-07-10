@@ -6,7 +6,7 @@ tag: [git, github, gitblog]
 author_profile: false
 sidebar:
   nav: "docs"
-last_modified_at: 2024-06-26
+last_modified_at: 2024-07-10
 ---
 
 # Git Branch
@@ -141,16 +141,19 @@ merge가 성공적으로 이루어지면 HEAD 브랜치(A)에 merge할 브랜치
     <img src="/images/github/pr_review.png" width="400" height="210" /><br>
 
 ## 피드백 확인
+
 - 팀원이 제공한 피드백을 바탕으로 토론을 진행하거나 파일을 수정한다.
 - 파일 수정 후 커밋하고 push를 하면 PR에도 바로 반영이된다.
 - 팀원은 새로운 커밋을 확인하고 다시 파일 변경 사항을 확인한다.
 
 ## Merge 충돌 해결
+
 - 충돌이 일어난다면 해결 방법은 2가지가 있다.
   - 로컬에서 먼저 compare 브랜치에 base 브랜치를 merge한다
   - 웹에서 충돌 발생한 부분을 수정한다.
 - 더이상 충돌이 없다면 `Confirm merge` 버튼을 클릭해 PRmerge를 완료한다.
-   
+- merge가 완료되거나 취소된 PR은 closed에서 확인할 수 있다.
+  <img src="/images/github/closed.png" width="400" height="150" /><br>
 
 ---
 
