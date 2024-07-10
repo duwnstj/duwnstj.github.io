@@ -119,7 +119,27 @@ merge가 성공적으로 이루어지면 HEAD 브랜치(A)에 merge할 브랜치
   브랜치에서 어떤 변경이 있었는지 팀원들이 알아보기 쉽게 설명을 작성해준다.<br>
   Create pull request를 클릭하여 PR을 생성한다.<br>
   <img src="/images/github/prcreate.png" width="400" height="210" /><br>
+- pr을 생성하고 나면 Pull request 창에 pr이 나타난다<br>
+  <img src="/images/github/prtest.png" width="400" height="210" /><br>
+
+## Pull Requests 페이지
+
+- pr을 클릭한 후 `Conversation` 탭을 통해서 PR 설명,팀원들의 피드백 등을 확인 할 수 있다.<br>
+- `commits` 탭을 통해 변경 사항이 있는 커밋들을 확인 할 수 있다.
+- `Files changed` 탭을 통해 변경 사항이 있는 파일을 확인하고 피드백을 작성할 수 있다.
+  <img src="/images/github/pr창.png" width="400" height="210" /><br>
+
+## 파일 변경 사항 확인
+
+- 파일 단위로 변경 사항을 확인하고 +버튼을 눌러 원하는 위치에 댓글을 달 수 있다.
+- 확인이 끝난 파일은 `viewed`를 통해 체크 해 둘 수 있다.<br><br>
+  <img src="/images/github/pr_view.png" width="400" height="210" /><br>
+- 파일 확인이 끝나면 Finish your review를 클릭하고 최종 피드백을 작성한다.(팀원들 입장)
+  - `Comment`는 단순 피드백을 제출 할 때 사용한다.
+  - `Approve`는 피드백을 제출하고 merge를 승인할 때 사용한다.
+  - `Request changes`는 merge 이전에 수정할 것을 요청할 때 사용한다.<br><br>
+    <img src="/images/github/pr_review.png" width="400" height="210" /><br>
 
 ---
 
-출처 : [Git과 GitHub(코드밸리)](https://www.codingvalley.com/course/clptd3p153c6e0b121337325v)의 강의
+출처 : [Git과 GitHub(코드밸리)](https://www.codingvalley.com/course/clptd3p153c6e0b121337325v)의 강의입니다.
