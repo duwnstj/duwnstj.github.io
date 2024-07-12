@@ -193,6 +193,7 @@ sass:
 custom:
   stylesheets:
     - /assets/css/main.css
+    - /assets/css/custom.css
 
 # Outputting
 permalink: /:categories/:title/

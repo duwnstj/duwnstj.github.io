@@ -1,10 +1,24 @@
 // 인라인 코드 스타일
-p code,
-li code {
-    background-color: #faebd7 !important; /* 배경색: 연한 베이지 */
-    color: #8B4513; /* 글자색: 다크 브라운 */
+code {
+  background-color: #faebd7 !important; /* 배경색: 연한 베이지 */
+  color: #8b4513; /* 글자색: 다크 브라운 */
   padding: 2px 4px;
   border-radius: 4px;
   font-weight: bold;
+  font-size: 85%;
+}
+
+/* 코드 블록 스타일 */
+pre {
+  background-color: #333 !important;
+  padding: 10px;
+  border-radius: 4px;
+  overflow: auto;
+}
+
+pre code {
+  background-color: transparent !important; /* 코드 블록 내 코드 배경색 투명 */
+  color: #f8f8f2; /* 글자색: 밝은 색 */
+  display: block;
   font-size: 85%;
 }

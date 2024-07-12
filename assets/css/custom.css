@@ -1,6 +1,3 @@
----
----
-
 /* assets/css/custom.css */
 
-@import "../../_sass/custom";
+@import "custom";
