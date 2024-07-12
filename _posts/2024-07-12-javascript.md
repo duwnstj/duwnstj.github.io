@@ -60,7 +60,7 @@ last_modified_at: 2024-07-12
 
 - 코드 작성법 :`alert('잘못입력하였어요');`
 - 결과 :
-  - <img src="/images/JavaScript/alert.png" width="250" height="230" />
+  - <img src="/images/JavaScript/alert.png" width="300" height="250" />
 
 ---
 
@@ -69,7 +69,7 @@ last_modified_at: 2024-07-12
 - 사용자에게 `확인` 또는 `취소`를 선택할 수 있는 대화상자를 띄운다.
 - 코드 작성법 : `confirm('학교 잘 갔다왔니?');`
 - 결과 창 :
-  - <img src="/images/JavaScript/confirm.png" width="250" height="230"/><br><br>
+  - <img src="/images/JavaScript/confirm.png" width="300" height="250"/><br><br>
 - 사용자가 `확인` 버튼을 클릭하면 confirm()은 `true`를 반환한다.
 - 사용자가 `취소` 버튼을 클릭하면 confirm()은 `false`를 반환한다.
 
@@ -149,8 +149,6 @@ last_modified_at: 2024-07-12
 - **장점**: HTML이 모두 렌더링된 후에 자바스크립트 파일이 로드되므로, 페이지 로딩이 느려지지 않는다.
 - **단점**: 자바스크립트가 필요한 요소들을 초기화하거나 이벤트 리스너를 설정할때 약간의 지연이 발생할 수 있다.
 - **보통 많은 개발자들이 `body`태그 하단에 스크립트 코드를 많이 작성한다.**
-
-  ㅈㄴ 힘드네
 
 ---
 
