@@ -9,3 +9,11 @@ search: false
 @import "minimal-mistakes"; // main partials
 
 @import "custom";
+
+.nav__sub-title {
+  font-size: 1.5em; /* 원하는 폰트 크기로 변경 */
+}
+
+li > a {
+  font-size: 1.4em;
+}
