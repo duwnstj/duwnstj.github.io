@@ -48,9 +48,9 @@ comments:
   active: giscus
   giscus:
     repo: duwnstj/duwnstj12.github.io
-    repo_id: "" # TODO: Giscus 설정 후 발급받는 ID 입력
-    category: "Comments"
-    category_id: "" # TODO: Giscus 설정 후 발급받는 ID 입력
+    repo_id: "R_kgDOTFiM8w"
+    category: "Announcements"
+    category_id: "DIC_kwDOTFiM884C_6hT"
     mapping: pathname
     strict: 0
     reactions_enabled: 1
