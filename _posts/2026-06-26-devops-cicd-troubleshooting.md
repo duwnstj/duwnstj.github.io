@@ -6,7 +6,7 @@ categories: [DevOps, Troubleshooting]
 tags: [devops, cicd, githubactions, seo, jekyll, chirpy]
 ---
 
-## 📌 TL;DR (3줄 요약)
+## 📌 3줄 요약
 
 * **Task:** Jekyll Chirpy 기반 정적 블로그의 GitHub Actions 자동 배포 파이프라인 에러 해결 및 네이버/구글 서치 콘솔 연동.
 * **Action:** 도입하려던 Slack 웹훅 Step 제거로 CI/CD 정상화, 테마 버전에 따른 YAML 구조 변경 추적(`analytics: google:`), 로봇 캐싱 TTL을 고려한 파일 인증 적용.
