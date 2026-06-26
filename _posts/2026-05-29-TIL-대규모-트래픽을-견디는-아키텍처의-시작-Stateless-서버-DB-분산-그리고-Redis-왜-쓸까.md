@@ -2,6 +2,8 @@
 layout: post
 title: "[TIL] 대규모 트래픽을 견디는 아키텍처의 시작: Stateless 서버, DB 분산, 그리고 Redis 왜 쓸까?"
 date: 2026-05-29T01:19:36.723Z
+categories:
+  - Backend
 tags:
   - TIL
 ---

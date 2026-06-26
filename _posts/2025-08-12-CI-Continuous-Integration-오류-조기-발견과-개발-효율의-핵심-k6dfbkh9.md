@@ -2,6 +2,8 @@
 layout: post
 title: "CI (Continuous Integration): 오류 조기 발견과 개발 효율의 핵심"
 date: 2025-08-12T04:18:26.029Z
+categories:
+  - Tech Log
 tags:
   - ci
 ---

@@ -2,6 +2,8 @@
 layout: post
 title: "JavaScript의 변수"
 date: 2024-07-26T02:46:01.611Z
+categories:
+  - Backend
 tags:
   - JavaScript
 ---
@@ -40,13 +42,11 @@ let name; // 변수 선언
 name = "홍길동"; // 변수 초기화
 name = "신사임당"; // 변수 재할당
 console.log(name);
-```
-
+```text
 ```javascript
 // 결과
 신사임당;
-```
-
+```text
 - 결과로 신사임당이 나오게 된다.
 - **변수에 저장되었던 값을 다시 재할당을 하게 되면 그 값이 다시 name변수에 저장이된다.**
 
@@ -55,13 +55,11 @@ console.log(name);
 ```javascript
 let name = "홍길동";
 console.log(name);
-```
-
+```text
 ```javascript
 // 결과
 홍길동;
-```
-
+```text
 ## const
 
 - 자바스크립트에서 상수는 `const`키워드를 사용하여 선언한다.
@@ -74,8 +72,7 @@ console.log(movieName);
 
 //결과
 홍길동;
-```
-
+```text
 - <span style="color : red;">const를 사용할 때 주의 할점이 있다.<span>
 - const는 let과 달리 선언과 동시에 값을 할당하지 않으면 오류가 발생하게 된다.
 
@@ -87,8 +84,7 @@ const movieName;
 Uncaught SyntaxError: Missing initializer
 in const declaration
 // 이러한 에러가 뜬다.
-```
-
+```text
 - **const 키워드로 선언된 변수의 값을 변경하면 TypeError가 발생한다.**
 
 ```javascript
@@ -98,8 +94,7 @@ movieName = "범죄도시";
 // 결과
 VM34:2 Uncaught TypeError: Assignment to constant variable.
 //이러한 에러가 뜨게 된다.
-```
-
+```text
 ## 자바와 자바스크립트의 변수 차이점
 
 자바에서는 `int,double,String` 이런식으로 `자료형 타입`이 있지만,<br>
@@ -115,8 +110,7 @@ VM34:2 Uncaught TypeError: Assignment to constant variable.
 ```javascript
 let $salary;
 let _jobTitle;
-```
-
+```text
 > ### 카멜 표기법(camelCase)
 
 - 변수명은 전체적으로 소문자를 사용하지만, 연결 단어의 첫 글자는 대문자로 작성한다.
@@ -125,8 +119,7 @@ let _jobTitle;
 ```javascript
 let customerId;
 let phoneNumber;
-```
-
+```text
 ### 예약어 사용 불가
 
 - 자바스크립트의 예약어는 변수명으로 사용할 수 없다.
@@ -139,8 +132,7 @@ let if;
 // 결과
 Uncaught SyntaxError : Unexpected token 'if'
 // 이러한 오류가 뜨게 된다.
-```
-
+```text
 > ## 주석
 
 - 주석은 나중에 다시 코드를 보더라도 이해가 될 수 있게 상세하게 적어준다.
@@ -153,14 +145,12 @@ Uncaught SyntaxError : Unexpected token 'if'
 
 ```javascript
 // 이런식으로 한줄 주석을 작성한다.
-```
-
+```text
 - 여러 줄의 주석을 작성할 때는 `/**/` 기호를 사용해서 감싸주면 된다.
 
 ```javascript
 /* 해당 부호로 감싸면 이런식으로 여러 줄의 주석을 작성할 수 있다 */
-```
-
+```text
 > ## 세미콜론으로 문장 구분하기
 
 - 문장의 끝을 나타내기 위해 `세미콜론(;)`을 사용한다.
@@ -170,8 +160,7 @@ Uncaught SyntaxError : Unexpected token 'if'
 ```javascript
 let example = "세미콜론이 있는 버전";
 let example2 = "세미콜론이 없는 버전";
-```
-
+```text
 > ## 들여쓰기
 
 - 들여쓰기는 코드의 가독성을 높여주는 중요한 요소이다.
@@ -189,8 +178,7 @@ function indentThree() {
 //결과
 two;
 three;
-```
-
+```text
 <hr>
 
 출처 : [자바스크립트(코딩밸리)](https://www.codingvalley.com/)의 강의를 토대로 만들었습니다.

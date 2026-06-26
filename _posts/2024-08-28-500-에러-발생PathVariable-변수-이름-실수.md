@@ -2,6 +2,9 @@
 layout: post
 title: "500 에러 발생:PathVariable 변수 이름 실수"
 date: 2024-08-28T13:36:26.207Z
+categories:
+  - Tech Log
+  - TIL
 tags:
   - 트러블 슈팅
 ---
@@ -22,7 +25,7 @@ public ResponseEntity<CommentResponseDto> createComment(@PathVariable Long sched
 
     return ResponseEntity.ok(saveComment);
 }
-```
+```text
 이 코드를 분석해보니 문제의 원인을 찾을 수 있었다.
 
 ## 2. 문제 원인 
@@ -43,7 +46,7 @@ public ResponseEntity<CommentResponseDto> createComment(@PathVariable Long sched
     return ResponseEntity.ok(saveComment);
 }
 
-```
+```text
 수정한 내용은 이러하다.
 - URL 경로의 `{id}`를 `{scheduleId}`로 수정하여 메서드 파라미터 이름과 일치시켰다. 
 

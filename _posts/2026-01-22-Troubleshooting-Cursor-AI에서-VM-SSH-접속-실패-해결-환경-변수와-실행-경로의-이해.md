@@ -2,6 +2,9 @@
 layout: post
 title: "[Troubleshooting] Cursor AI에서 VM SSH 접속 실패 해결 (환경 변수와 실행 경로의 이해)"
 date: 2026-01-22T08:00:16.285Z
+categories:
+  - Tech Log
+  - TIL
 tags:
   - 트러블슈팅
 ---

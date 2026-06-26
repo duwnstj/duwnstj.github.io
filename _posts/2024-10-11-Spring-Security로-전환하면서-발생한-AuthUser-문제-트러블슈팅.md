@@ -3,6 +3,9 @@ layout: post
 title: "Spring Security로 전환하면서 발생한 AuthUser 문제 트러블슈팅
 "
 date: 2024-10-11T01:44:51.623Z
+categories:
+  - Backend
+  - Spring Boot
 tags:
   - 트러블 슈팅
 ---
@@ -30,7 +33,7 @@ import java.lang.annotation.Target;
 public @interface Auth {
 }
 
-```
+```text
 ## AuthUser 코드
 ```java
 package org.example.expert.domain.common.dto;
@@ -52,7 +55,7 @@ public class AuthUser {
     }
 }
 
-```
+```text
 필터에서 먼저 request(요청)으로 들어온 값에서 필요한 정보들을 추출 한뒤 `AuthUserArgumentResolver`를 사용해 AuthUser라는 클래스로 값을 받아서 사용했습니다.
 
 ## 문제의 원인
@@ -64,7 +67,7 @@ public class AuthUser {
     public Object getPrincipal() {
         return authUser;
     }
-```
+```text
 이 코드는 이전에 `AuthUserArgumentResolver`를 통해 `AuthUser`에 값을 넘겨준 코드와 동일한 방식입니다. 따라서 Spring Security에서는 `@AuthenticationPrincipal` 어노테이션을 사용하면 로그인된 유저 정보를 편리하게 가져올 수 있습니다.
 
 ## 문제 해결 코드
@@ -77,7 +80,7 @@ public class AuthUser {
         return ResponseEntity.ok(todoService.saveTodo(authUser, todoSaveRequest));
     }
 
-```
+```text
 이렇게 매개변수에 `@AuthenticationPrincipal` 어노테이션을 사용하여 로그인된 유저 정보를 전달받을 수 있었고 문제없이 일정을 저장할 수 있었습니다.
 
 ## 결과

@@ -2,6 +2,8 @@
 layout: post
 title: "[실습]🌐 Vagrant Provisioning으로 자동화된 VM 환경 구축하기"
 date: 2025-08-20T09:03:47.009Z
+categories:
+  - Tech Log
 tags:
   - VM머신
 ---
@@ -23,14 +25,14 @@ tags:
     systemctl enable httpd
   SHELL
 end
-```
+```text
 📌 위 예시는 **VM 생성 시 Apache 웹 서버(httpd)를 자동 설치 및 실행**하도록 설정한 코드입니다.
 
 ---
 ## 3. VM 생성 시 프로비저닝 실행 (`vagrant up`)
 ``` bash
 vagrant up
-```
+```text
 - VM이 처음 생성될 때 `provision` 블록에 정의된 명령어가 자동 실행됩니다.
 - 만약 VM이 이미 생성되어 있다면, `up` 시에는 **프로비저닝이 재실행되지 않습니다**.
 
@@ -41,7 +43,7 @@ vagrant up
 ``` bash
 cat /etc/os-release
 systemctl status httpd
-```
+```text
 - systemctl status httpd로 웹서버 실행 여부를 확인할 수 있습니다.
 - 브라우저에서 http://localhost:8080 (포트 포워딩 시) 접속해도 확인 가능합니다.
 
@@ -52,12 +54,12 @@ systemctl status httpd
 ``` bash
 vagrant provision
 
-```
+```text
 - 또는 `up` 명령어와 함께 옵션을 붙여 실행할 수도 있습니다:
 ``` bash
 vagrant up --provision
 
-```
+```text
 ⚠️ 단,** Provisioning**은 처음 환경 세팅을 자동화하기 위한 용도이므로, 재실행보다는** Ansible, Puppet 같은 별도 툴**을 쓰는 게 더 바람직합니다.
 ## 6. Apache 웹서버 자동 설치/구동 예제
 1. 패키지 설치 (`yum install -y httpd`)

@@ -2,6 +2,9 @@
 layout: post
 title: "[AWS/FinOps] 무작정 배포하다 마주친 5가지 벽과 트러블슈팅 회고 (IAM, SG, OOM, RDS 분리)"
 date: 2026-06-24T08:44:32.546Z
+categories:
+  - Cloud
+  - AWS
 ---
 
 
@@ -92,8 +95,7 @@ AWS CLI로 RDS를 생성할 때 `--db-name` 옵션을 주지 않아, 내부에 `
 
 ```bash
 docker run -it --rm mysql:8.0 mysql -h [RDS_엔드포인트] -u root -p
-```
-
+```text
 EC2 본체를 더럽히지 않고 1회용 접속기(`--rm`)를 띄워 원격으로 `CREATE DATABASE cover_db;` 명령만 전송한 뒤 리모컨을 부숴버렸습니다.
 
 >![](https://velog.velcdn.com/images/duwnstj12/post/2a22eb9c-ed40-47bd-919a-84327c2dbe55/image.png)

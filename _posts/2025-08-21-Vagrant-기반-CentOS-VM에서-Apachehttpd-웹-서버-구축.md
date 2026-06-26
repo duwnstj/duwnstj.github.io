@@ -2,6 +2,8 @@
 layout: post
 title: "[실습]🖥️ Vagrant 기반 CentOS VM에서 Apache(httpd) 웹 서버 구축"
 date: 2025-08-21T03:42:54.650Z
+categories:
+  - Tech Log
 ---
 
 ## 1. 서버 관리 개요
@@ -23,7 +25,7 @@ date: 2025-08-21T03:42:54.650Z
   # your network.
   config.vm.network "public_network"
 
-```
+```text
 - ** private_network**: 호스트 전용 네트워크 (개발용 내부 테스트에 주로 사용)
 
 - **public_network**: 브리지 네트워크. VM이 물리 네트워크 상의 별도 장비처럼 동작
@@ -39,7 +41,7 @@ date: 2025-08-21T03:42:54.650Z
    vb.cpus = 2
   end
 
-```
+```text
 ### 프로비저닝 설정 (httpd 자동 설치) :
 ``` bash
  config.vm.provision "shell", inline: <<-SHELL
@@ -49,7 +51,7 @@ date: 2025-08-21T03:42:54.650Z
       systemctl enable httpd
   SHELL
 
-```
+```text
 - VM이 처음 실행될 때 자동으로 `httpd`가 설치되고 실행됨
 
 --- 
@@ -62,7 +64,7 @@ date: 2025-08-21T03:42:54.650Z
 ``` bash
 Active: active (running) since ...
 
-```
+```text
   👉 active `(running)` 상태라면 정상적으로 실행 중
   ---
 ## 4. 기본 index.html 테스트 페이지 생성
@@ -71,7 +73,7 @@ Active: active (running) since ...
 
 ``` bash
 dnf install vim unzip zip -y
-```
+```text
 - vim: 파일 편집기
 - unzip/zip: 템플릿 압축 해제 및 관리
 
@@ -86,17 +88,17 @@ dnf install vim unzip zip -y
 ### 2. wget으로 다운로드
 ``` bash
 wget <다운로드_URL>
-```
+```text
 ![](https://velog.velcdn.com/images/duwnstj12/post/1e4b6d17-3a0c-4e52-989d-905d97ee8c75/image.png)
 
 ### 3. 압축 해제
 ``` bash
 unzip template.zip
-```
+```text
 ### 4. 웹 루트 디렉토리로 복사
 ``` bash
 sudo cp -r template/* /var/www/html/
-```
+```text
 ---
 
 ### 5. 카피 결과
@@ -110,15 +112,14 @@ cp: overwrite '/var/www/html/index.html'? yes
  css                        images   js           shop-listing.html
 [root@vbox ~]#
 
-```
-
+```text
 ## 6. 방화벽(firewalld) 상태 확인 및 해제(실습 환경)
 ### 실습 편의상 방화벽 해제:
 ``` bash
 systemctl stop firewalld
 systemctl disable firewalld
 
-```
+```text
 👉 실제 운영환경에서는 반드시 방화벽 규칙으로 **80포트**만 허용해야 함.
 
 ---
@@ -129,15 +130,14 @@ systemctl disable firewalld
 ``` bash
 ip addr show
 
-```
+```text
 ![](https://velog.velcdn.com/images/duwnstj12/post/b1db80bc-651e-4f7a-af18-1a98cef7139a/image.png)
 이 주소가 public(bridge) 주소
 ### 브라우저 접속
-```
+```text
 http://192.168.56.21
 
-```
-
+```text
 ### 결과
 ![](https://velog.velcdn.com/images/duwnstj12/post/5f5fcbb4-9bde-43f9-a784-40e149f25ca1/image.png)
 

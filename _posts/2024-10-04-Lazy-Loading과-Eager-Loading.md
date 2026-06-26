@@ -2,6 +2,8 @@
 layout: post
 title: "Lazy Loading과 Eager Loading"
 date: 2024-10-04T04:19:34.662Z
+categories:
+  - Tech Log
 tags:
   - 스프링
 ---

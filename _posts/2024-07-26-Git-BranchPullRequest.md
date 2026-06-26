@@ -2,6 +2,8 @@
 layout: post
 title: "Git Branch,PullRequest"
 date: 2024-07-26T02:16:55.754Z
+categories:
+  - Tech Log
 tags:
   - git
   - github

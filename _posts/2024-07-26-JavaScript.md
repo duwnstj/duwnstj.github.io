@@ -2,6 +2,8 @@
 layout: post
 title: "JavaScript"
 date: 2024-07-26T02:26:48.656Z
+categories:
+  - Backend
 tags:
   - JavaScript
 ---

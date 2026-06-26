@@ -2,6 +2,9 @@
 layout: post
 title: "[Docker] 실습으로 파헤치는 데이터 관리: Volume & Bind Mount 트러블슈팅기"
 date: 2026-02-12T02:08:39.591Z
+categories:
+  - DevOps
+  - Container
 ---
 
 

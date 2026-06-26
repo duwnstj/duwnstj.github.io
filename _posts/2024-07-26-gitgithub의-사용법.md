@@ -2,6 +2,8 @@
 layout: post
 title: "git,github의 사용법"
 date: 2024-07-26T02:08:43.827Z
+categories:
+  - DevOps
 tags:
   - git
   - github

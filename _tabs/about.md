@@ -1,6 +1,7 @@
 ---
-layout: page
-title: About
+# the default layout is 'page'
+icon: fas fa-info-circle
+order: 4
 ---
 
 ## 👨‍💻 준서 (Junseo Yeo)
@@ -32,11 +33,6 @@ title: About
 - **역할:** DevOps & Backend Engineer
 - **내용:** Spring Boot + Docker + AWS 기반 플랫폼 아키텍처 설계 및 구축
 - **성과:** GitHub Actions를 활용한 무중단 배포 파이프라인 구축 및 FinOps 기반 아키텍처 비용 최적화
-
----
-
-### 📝 Certifications
-- *(취득 예정 자격증이나 이수한 교육을 여기에 기록하세요)*
 
 ---
 

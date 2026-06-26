@@ -2,6 +2,8 @@
 layout: post
 title: "git ignore에 application properties 추가하는 방법"
 date: 2024-09-07T13:06:01.270Z
+categories:
+  - Tech Log
 tags:
   - Spring
 ---

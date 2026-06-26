@@ -2,6 +2,8 @@
 layout: post
 title: "rny_string"
 date: 2024-03-25T10:19:38.356Z
+categories:
+  - Tech Log
 tags:
   - 자바
   - 프로그래머스Lv0
@@ -22,7 +24,7 @@ class Solution {
         return answer;
     }
 }
-```
+```text
 ***
 # 문제 풀이
 1. `replace()`함수를 이용한다. replace()함수는 문자를 바꾸고 싶을 때 사용한다.
