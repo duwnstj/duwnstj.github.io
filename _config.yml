@@ -53,7 +53,7 @@ comments:
     repo_id: "R_kgDOTFiM8w"
     category: "Announcements"
     category_id: "DIC_kwDOTFiM884C_6hT"
-    mapping: pathname
+    mapping: title
     strict: '0'
     reactions_enabled: '1'
     emit_metadata: '0'
