@@ -40,7 +40,8 @@ permalink: /about/
 
 ## 🚀 Projects (Architecture Viewpoint)
 
-### 📚 LibMate (도서관 운영 관리 시스템) | DevOps & Backend
+<details markdown="1">
+<summary><b>📚 LibMate (도서관 운영 관리 시스템)</b> | DevOps & Backend</summary>
 
 > **목표:** 대규모 도서 리뷰 데이터 조회 최적화 및 알림 시스템의 인프라 병목 해결
 
@@ -56,9 +57,10 @@ permalink: /about/
 * **운영 안정성 검증**
   * JMeter를 활용한 부하 테스트(Load Test) 수행으로 인프라 한계 수치 검증.
 
-<br>
+</details>
 
-### 👟 ShoesOrder (신발 주문 관리 시스템) | Backend & Infra
+<details markdown="1">
+<summary><b>👟 ShoesOrder (신발 주문 관리 시스템)</b> | Backend & Infra</summary>
 
 > **목표:** JWT 아키텍처 안정화 및 데이터베이스 병목 분산
 
@@ -70,9 +72,10 @@ permalink: /about/
 * **데이터 조회 최적화**
   * QueryDSL 페이징 처리를 도입하여 대규모 트래픽 유입 시 데이터베이스 I/O 병목 최소화.
 
-<br>
+</details>
 
-### ✈️ TravelMate (여행 커뮤니티 플랫폼) | Backend
+<details markdown="1">
+<summary><b>✈️ TravelMate (여행 커뮤니티 플랫폼)</b> | Backend</summary>
 
 > **목표:** 보안(Security) 기반 백엔드 운영 환경 설계
 
@@ -80,6 +83,8 @@ permalink: /about/
   * Spring Security 체계를 활용한 API 접근 제어망 구축.
 * **네트워크 페이로드 최적화**
   * AJAX 비동기 처리를 전면 도입하여 클라이언트-서버 간 불필요한 페이지 렌더링 부하 최소화 및 UX 개선.
+
+</details>
 
 ---
 
