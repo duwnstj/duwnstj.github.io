@@ -67,11 +67,8 @@ social:
   links:
     - https://github.com/duwnstj
 
-seo:
-  # 구글 서치 콘솔 연동 코드
-  google_site_verification: 'IS2lBOKmyVUD1Szc_FglPcIBiMyTh7_zLM3xlpcylfE'
-  # 네이버 서치어드바이저 연동 코드
-  naver_site_verification: '48bf3c0ea58c63ccab896b64d275226fb9e9a63b'
+# 구글 서치 콘솔 연동 코드
+google_site_verification: 'IS2lBOKmyVUD1Szc_FglPcIBiMyTh7_zLM3xlpcylfE'
 
 google_analytics:
   # 구글 애널리틱스 측정 ID (G-XXXXXXXXXX)
