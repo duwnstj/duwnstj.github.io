@@ -18,6 +18,20 @@ plugins:
   - jekyll-archives
   - jekyll-sitemap
 
+jekyll-archives:
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
 paginate: 10
 
 avatar: https://github.com/duwnstj.png
