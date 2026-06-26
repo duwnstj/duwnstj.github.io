@@ -43,6 +43,7 @@ defaults:
     values:
       layout: post
       category: "Tech Log"
+      comments: true
 
 comments:
   active: giscus
