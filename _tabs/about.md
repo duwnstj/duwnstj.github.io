@@ -40,8 +40,7 @@ permalink: /about/
 
 ## 🚀 Projects (Architecture Viewpoint)
 
-<details>
-<summary><b>📚 LibMate (도서관 운영 관리 시스템)</b> | DevOps & Backend</summary>
+### 📚 LibMate (도서관 운영 관리 시스템) | DevOps & Backend
 
 > **목표:** 대규모 도서 리뷰 데이터 조회 최적화 및 알림 시스템의 인프라 병목 해결
 
@@ -56,10 +55,10 @@ permalink: /about/
   * **Redis TTL + Redisson 분산 락** 아키텍처를 설계하여 데이터 무결성 100% 보장.
 * **운영 안정성 검증**
   * JMeter를 활용한 부하 테스트(Load Test) 수행으로 인프라 한계 수치 검증.
-</details>
 
-<details>
-<summary><b>👟 ShoesOrder (신발 주문 관리 시스템)</b> | Backend & Infra</summary>
+<br>
+
+### 👟 ShoesOrder (신발 주문 관리 시스템) | Backend & Infra
 
 > **목표:** JWT 아키텍처 안정화 및 데이터베이스 병목 분산
 
@@ -70,10 +69,10 @@ permalink: /about/
   * `@ControllerAdvice` 기반 전역 예외 처리 구조를 설계하여 런타임 서버 크래시(Crash) 방어.
 * **데이터 조회 최적화**
   * QueryDSL 페이징 처리를 도입하여 대규모 트래픽 유입 시 데이터베이스 I/O 병목 최소화.
-</details>
 
-<details>
-<summary><b>✈️ TravelMate (여행 커뮤니티 플랫폼)</b> | Backend</summary>
+<br>
+
+### ✈️ TravelMate (여행 커뮤니티 플랫폼) | Backend
 
 > **목표:** 보안(Security) 기반 백엔드 운영 환경 설계
 
@@ -81,13 +80,12 @@ permalink: /about/
   * Spring Security 체계를 활용한 API 접근 제어망 구축.
 * **네트워크 페이로드 최적화**
   * AJAX 비동기 처리를 전면 도입하여 클라이언트-서버 간 불필요한 페이지 렌더링 부하 최소화 및 UX 개선.
-</details>
 
 ---
 
 ## 🔥 Troubleshooting Archive (Blog Hub)
 
-단순히 서버의 에러 로그를 지우는 것을 넘어, **"왜 이런 아키텍처를 선택했는지", "비용 측면에서 다른 인프라 대안은 없었는지"** 블로그에 깊이 있게 회고합니다. (상세 내용은 좌측 사이드바 `Categories` 참조)
+단순히 서버의 에러 로그를 지우는 것을 넘어, **"왜 이런 아키텍처를 선택했는지", "비용 측면에서 다른 인프라 대안은 없었는지"** 깊이 있게 회고합니다. (과거에 제가 직접 작성한 트러블슈팅 글들은 좌측 메뉴의 **[Categories](/categories/)** 탭에서 확인하실 수 있습니다!)
 
 * **[DevOps/Infra]** 
   * RabbitMQ 비동기 큐 전환으로 인한 응답 속도 10배 개선 수치 및 아키텍처 트레이드오프 분석
