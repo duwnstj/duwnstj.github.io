@@ -3,7 +3,7 @@ layout: post
 title: "[실습]HAProxy L7 라우팅: 404 에러를 해결하는 Path Rewrite의 마법"
 date: 2026-02-03T09:58:32.702Z
 categories:
-  - DevOps
+  - Tech Log
 ---
 
 

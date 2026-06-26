@@ -21,12 +21,12 @@ tags:
   ```javascript
   let name;
   console.log(name);
-  ```
+```text
 
   ```javascript
   // 결과
   undefined;
-  ```
+```text
 
   - **변수 name을 선언하면 name이란 이름을 가진 메모리 공간이 생성된다.**
   - 지금 이와같은 결과가 나오는 이유는 변수를 선언하고 값을 할당하지 않아서이다. 이 결과로 `undefined`가 나오게 된다.

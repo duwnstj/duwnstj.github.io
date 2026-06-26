@@ -4,7 +4,6 @@ title: "[Spring] 인텔리제이 Port 8080 was already in use 해결"
 date: 2024-08-12T08:05:22.043Z
 categories:
   - Backend
-  - Spring Boot
 tags:
   - 트러블 슈팅
 ---

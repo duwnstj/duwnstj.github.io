@@ -3,7 +3,7 @@ layout: post
 title: "[실습]🌐 Vagrant Provisioning으로 자동화된 VM 환경 구축하기"
 date: 2025-08-20T09:03:47.009Z
 categories:
-  - Tech Log
+  - DevOps
 tags:
   - VM머신
 ---

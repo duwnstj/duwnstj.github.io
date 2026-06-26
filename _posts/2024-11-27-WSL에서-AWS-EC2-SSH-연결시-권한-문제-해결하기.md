@@ -4,7 +4,6 @@ title: "WSL에서 AWS EC2 SSH 연결시 권한 문제 해결하기"
 date: 2024-11-27T12:21:46.314Z
 categories:
   - Cloud
-  - AWS
 tags:
   - 트러블 슈팅
 ---

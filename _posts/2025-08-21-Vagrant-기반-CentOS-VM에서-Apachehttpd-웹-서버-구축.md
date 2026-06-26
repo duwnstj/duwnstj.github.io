@@ -3,7 +3,7 @@ layout: post
 title: "[실습]🖥️ Vagrant 기반 CentOS VM에서 Apache(httpd) 웹 서버 구축"
 date: 2025-08-21T03:42:54.650Z
 categories:
-  - Tech Log
+  - DevOps
 ---
 
 ## 1. 서버 관리 개요
@@ -59,7 +59,7 @@ categories:
  
    ``` bash
    systemctl status httpd
-   ```
+```text
 ### 출력 예시 :
 ``` bash
 Active: active (running) since ...

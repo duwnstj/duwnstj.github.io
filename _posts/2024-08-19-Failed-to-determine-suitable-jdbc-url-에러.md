@@ -4,7 +4,6 @@ title: "Failed to determine suitable jdbc url 에러"
 date: 2024-08-19T00:57:06.623Z
 categories:
   - Tech Log
-  - TIL
 tags:
   - 트러블 슈팅
 ---

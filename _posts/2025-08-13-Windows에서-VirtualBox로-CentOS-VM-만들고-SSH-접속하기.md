@@ -3,7 +3,7 @@ layout: post
 title: "[실습]🖥️ Windows에서 VirtualBox로 CentOS VM 만들고 SSH 접속하기"
 date: 2025-08-13T14:06:35.102Z
 categories:
-  - Tech Log
+  - DevOps
 tags:
   - vm
 ---

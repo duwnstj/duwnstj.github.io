@@ -3,7 +3,7 @@ layout: post
 title: "Vagrant로 리눅스 VM 자동 생성·관리하기"
 date: 2025-08-20T05:08:42.357Z
 categories:
-  - Tech Log
+  - DevOps
 ---
 
 ## 1. Vagrant란 무엇인가?

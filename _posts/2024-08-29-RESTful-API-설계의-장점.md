@@ -3,7 +3,7 @@ layout: post
 title: "RESTful API 설계의 장점 "
 date: 2024-08-29T14:00:06.936Z
 categories:
-  - Tech Log
+  - Backend
 tags:
   - 스프링
 ---

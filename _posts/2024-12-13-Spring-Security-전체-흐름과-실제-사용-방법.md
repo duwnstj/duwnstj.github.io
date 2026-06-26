@@ -4,7 +4,6 @@ title: "Spring Security : 전체 흐름과 실제 사용 방법"
 date: 2024-12-13T08:12:59.175Z
 categories:
   - Backend
-  - Spring Boot
 tags:
   - Spring
 ---

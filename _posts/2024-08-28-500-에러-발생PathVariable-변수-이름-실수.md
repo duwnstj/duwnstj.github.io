@@ -4,7 +4,6 @@ title: "500 에러 발생:PathVariable 변수 이름 실수"
 date: 2024-08-28T13:36:26.207Z
 categories:
   - Tech Log
-  - TIL
 tags:
   - 트러블 슈팅
 ---

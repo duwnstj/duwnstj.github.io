@@ -66,7 +66,7 @@ Docker로 컨테이너화하기 전,
     ```bash
     aws configure
     
-    ```
+```text
     
     - Access Key / Secret Key / Region / Output Format 입력
     - 저장 위치: `~/.aws/credentials`, `~/.aws/config`

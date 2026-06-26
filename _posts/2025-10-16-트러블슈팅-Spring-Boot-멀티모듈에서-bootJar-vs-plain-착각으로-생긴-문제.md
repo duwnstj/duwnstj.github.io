@@ -4,7 +4,6 @@ title: "⚙️ [트러블슈팅] Spring Boot 멀티모듈에서 bootJar vs plain
 date: 2025-10-16T11:17:42.133Z
 categories:
   - Backend
-  - Spring Boot
 ---
 
 ## 1️⃣ 사건 개요 — “왜 실행이 안 되지?”

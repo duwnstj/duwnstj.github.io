@@ -3,7 +3,7 @@ layout: post
 title: "[실습]Vagrant 실무 활용: VS Code와 Vagrantfile 관리하기"
 date: 2025-08-20T08:43:07.611Z
 categories:
-  - Tech Log
+  - DevOps
 ---
 
 ## 1. **Vagrantfile 개요**

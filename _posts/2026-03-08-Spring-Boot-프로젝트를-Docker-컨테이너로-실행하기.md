@@ -4,7 +4,6 @@ title: "Spring Boot 프로젝트를 Docker 컨테이너로 실행하기"
 date: 2026-03-08T04:42:39.611Z
 categories:
   - DevOps
-  - Container
 ---
 
 
