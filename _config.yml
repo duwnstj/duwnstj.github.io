@@ -70,6 +70,6 @@ social:
 # 구글 서치 콘솔 연동 코드
 google_site_verification: 'IS2lBOKmyVUD1Szc_FglPcIBiMyTh7_zLM3xlpcylfE'
 
-google_analytics:
-  # 구글 애널리틱스 측정 ID (G-XXXXXXXXXX)
-  id: 'G-ZEKG77WMRB'
+analytics:
+  google:
+    id: 'G-ZEKG77WMRB'
