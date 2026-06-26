@@ -16,7 +16,7 @@ S3에 올린 JAR 파일을 EC2로 복사한 뒤 실행하는 과정에서
 java -jar module-owner-0.0.1-SNAPSHOT-plain.jar
 no main manifest attribute, in module-owner-0.0.1-SNAPSHOT-plain.jar
 
-```text
+```
 처음엔 경로나 자바 버전 문제라고 생각했지만,
 
 결국 원인은 **단순한 설정 차이**였습니다.
@@ -62,7 +62,7 @@ no main manifest attribute, in module-owner-0.0.1-SNAPSHOT-plain.jar
 bootJar.enabled = false
 jar.enabled = true
 
-```text
+```
 이건 **실행용 모듈이 아닌 라이브러리 모듈용 설정**입니다.
 
 이 상태에서는 `bootJar` 작업이 비활성화되어,
@@ -113,7 +113,7 @@ dependencies {
     runtimeOnly 'com.mysql:mysql-connector-j'
 }
 
-```text
+```
 이 상태에서 `./gradlew clean build`를 실행하면
 
 다음과 같은 실행 가능한 JAR가 생성됩니다 👇
@@ -121,13 +121,13 @@ dependencies {
 ```text
 build/libs/module-owner-0.0.1-SNAPSHOT.jar
 
-```text
+```
 이제 정상적으로 실행할 수 있습니다 👇
 
 ```bash
 java -jar module-owner-0.0.1-SNAPSHOT.jar
 
-```text
+```
 ---
 
 ## 6️⃣ 라이브러리 모듈 설정 
@@ -145,7 +145,7 @@ jar {
     enabled = true
 }
 
-```text
+```
 예시:
 
 - `module-entity`: JPA 엔티티
@@ -156,7 +156,7 @@ jar {
 ```text
 implementation project(':module-common')
 
-```text
+```
 ---
 
 ## 7️⃣ 실행 모듈이 2개 이상일 때의 배포 전략

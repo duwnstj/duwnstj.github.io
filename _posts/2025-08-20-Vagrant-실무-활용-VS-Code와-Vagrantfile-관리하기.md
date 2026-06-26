@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
   # VM 설정 정의
 end
 
-```text
+```
 - `#` 기호를 사용하여 주석을 추가할 수 있으며, 실험 중인 설정을 관리할 때도 유용합니다.
 
 ---
@@ -48,12 +48,12 @@ end
 
 ``` bash
 vagrant reload
-```text
+```
 VM 상태 확인:
 
 ``` bash
 vagrant status
-```text
+```
 ---
 ## 5. **여러 VM 디렉토리 관리하기**
 - VM을 프로젝트별로 관리하는 것이 일반적입니다.
@@ -66,16 +66,16 @@ vagrant-vms/
 └── ubuntu/
     └── Vagrantfile
 
-```text
+```
 - 전역 상태 확인:
 ``` bash
 vagrant global-status
-```text
+```
 - 오래된 캐시 정리:
 ```text
 vagrant global-status --prune
 
-```text
+```
 ## 📌 정리
 
 Vagrantfile은 VM 환경을 코드로 선언하고 관리할 수 있는 핵심 파일입니다.

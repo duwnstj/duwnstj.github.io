@@ -27,7 +27,7 @@ categories:
 
 ``` bash
 ssh-keygen -t ed25519 -C "your_email@example.com"
-```text
+```
 - `t ed25519` → 최신 권장 알고리즘 (RSA보다 보안성·속도 우수)
 
 - `C` → 키에 대한 설명(주석), 주로 이메일 주소 사용
@@ -63,7 +63,7 @@ Windows 기준, 경로는 C:\Users\<사용자명>\.ssh 입니다.
 
 ``` bash
 cat ~/.ssh/id_ed25519.pub
-```text
+```
 cat 명령어는 리눅스 명령어로 **해당 파일을 출력**해준다.
 
 5. **Key type**: Authentication Key 선택
@@ -75,7 +75,7 @@ cat 명령어는 리눅스 명령어로 **해당 파일을 출력**해준다.
 현재 원격 저장소 주소 확인:
 ``` bash
 git remote -v
-```text
+```
 ![](https://velog.velcdn.com/images/duwnstj12/post/f23061c4-0e1e-4a08-b738-e4e50fd13217/image.png)
 
 ---
@@ -87,7 +87,7 @@ Github에서 SSH 주소 복사 :
 ``` bash
 git remote set-url origin git@github.com:username/repository.git
 
-```text
+```
 ---
 
 
@@ -100,12 +100,12 @@ SSH 연결 테스트:
 
 ``` bash
 ssh -T git@github.com
-```text
+```
 성공 시: 
 
 ``` bash
 Hi username! You've successfully authenticated, but GitHub does not provide shell access.
-```text
+```
 ---
 ## 7. SSH 사용의 장점
 - **비밀번호 입력 불필요** → 작업 속도 향상

@@ -24,7 +24,7 @@ class Solution {
         return answer;
     }
 }
-```text
+```
 ***
 # 문제 풀이
 1. `replace()`함수를 이용한다. replace()함수는 문자를 바꾸고 싶을 때 사용한다.

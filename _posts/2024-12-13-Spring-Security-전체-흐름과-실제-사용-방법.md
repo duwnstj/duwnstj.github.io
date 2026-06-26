@@ -167,7 +167,7 @@ public class JwtSecurityFilter extends OncePerRequestFilter {
 
         filterChain.doFilter(request, response);
     }
-```text
+```
 - 이 필터에서 `JwtUtil`을 의존성 주입받아 토큰 검증을 실행합니다.
 - `filterChain.doFilter(request, response);`를 통해 다음 필터로 요청을 전달합니다.
 - `@Order` 애노테이션을 사용하면 필터의 순서를 정할 수 있습니다.
@@ -199,7 +199,7 @@ public class JwtAuthenticationToken extends AbstractAuthenticationToken {
         return authUser;
     }
 }
-```text
+```
 - `getCredintials()`메서드는 `null`값으로 설정해줍니다.
     - 그 이유는 jwt 인증을 통해 사용자 정보와 권한 정보를 가져올 수 있기 때문입니다.
 - `getPrincipal()` 메서드를 오버라이딩하여 사용자 정보를 반환합니다.
@@ -248,7 +248,7 @@ public class SecurityConfig {
                 .build();
     }
 }
-```text
+```
 - 이 설정 파일에서 `requestMatchers().permitAll()`을 사용하면 특정 URL은 필터 검증을 통과하도록 설정할 수 있습니다.
 - 예를 들어, `회원가입(/users/)`과 로그인`(/users/login)` 요청은 필터 검증을 거치지 않고 바로 서버로 전달됩니다.
 

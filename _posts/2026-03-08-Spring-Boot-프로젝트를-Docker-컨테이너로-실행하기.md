@@ -53,7 +53,7 @@ docker run -d --name mysql-db \
   -e MYSQL_DATABASE=shoes_order \
   -p 3306:3306 \
   mysql:8`
-```text
+```
 | 옵션 | 설명 |
 | --- | --- |
 | `-d` | 백그라운드 실행 |
@@ -69,7 +69,7 @@ docker run -d --name mysql-db \
 # 네트워크 생성
 docker network create web-network
 
-```text
+```
 #### 2-2 MySQL 컨테이너를 네트워크에 연결
 `docker network connect web-network mysql-db`
 
@@ -77,7 +77,7 @@ docker network create web-network
 ```bash
 docker run --env-file .env --name shoesorder-web \
   --network web-network -p 8081:8081 myapp:good
-```text
+```
 | 명령어 | 설명 |
 | --- | --- |
 | `docker network create` | 사용자 정의 네트워크 생성 |
@@ -98,7 +98,7 @@ DB 연결이 해결되자 이번에는 S3 관련 에러가 발생했습니다. S
 `AWS_S3_ACCESS_KEY=dummy
 AWS_S3_SECRET_KEY=dummy
 AWS_REGION_STATIC=ap-northeast-2`
-```text
+```
 ---
 
 ### 4. 최종 확인
@@ -111,7 +111,7 @@ AWS_REGION_STATIC=ap-northeast-2`
 curl -v localhost:8081/api/v1/users/register \
   -H "Content-Type: application/json" \
   -d '{"email": "test@test.com", "password": "1234", "name":"홍길동"}
-```text
+```
 | curl 옵션 | 설명 |
 | --- | --- |
 | `-v` | 상세 출력 (상태 코드 확인) |
