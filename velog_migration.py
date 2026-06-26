@@ -13,19 +13,37 @@ if not os.path.exists(POSTS_DIR):
 GRAPHQL_URL = "https://v2.velog.io/graphql"
 
 def get_posts(username):
-    query = """
-    query Posts($username: String!) {
-      posts(username: $username) {
-        url_slug
-      }
-    }
-    """
-    variables = {"username": username}
-    response = requests.post(GRAPHQL_URL, json={"query": query, "variables": variables})
-    data = response.json()
-    if 'data' in data and data['data']['posts']:
-        return [post['url_slug'] for post in data['data']['posts']]
-    return []
+    slugs = []
+    cursor = None
+    
+    while True:
+        query = """
+        query Posts($username: String!, $cursor: ID) {
+          posts(username: $username, cursor: $cursor) {
+            id
+            url_slug
+          }
+        }
+        """
+        variables = {"username": username}
+        if cursor:
+            variables["cursor"] = cursor
+            
+        response = requests.post(GRAPHQL_URL, json={"query": query, "variables": variables})
+        data = response.json()
+        
+        if 'data' not in data or not data['data']['posts']:
+            break
+            
+        posts = data['data']['posts']
+        slugs.extend([post['url_slug'] for post in posts])
+        
+        if len(posts) < 20:
+            break
+            
+        cursor = posts[-1]['id']
+        
+    return slugs
 
 def get_post_detail(username, url_slug):
     query = """
