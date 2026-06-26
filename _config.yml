@@ -1,8 +1,26 @@
 title: 준서의 클라우드/DevOps 블로그
 author: Junseo Yeo
-email: your-email@example.com
+email: duwnstj12@naver.com
 description: >-
   AWS, DevOps, FinOps 및 트러블슈팅 기록을 남기는 포트폴리오 블로그입니다.
-theme: minima
+
+theme: jekyll-theme-chirpy
+
+url: "https://duwnstj.github.io"
+baseurl: "/duwnstj12.github.io"
+
+lang: ko-KR
+timezone: Asia/Seoul
+
 plugins:
-  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-redirect-from
+  - jekyll-archives
+
+paginate: 10
+
+social:
+  name: Junseo Yeo
+  email: duwnstj12@naver.com
+  links:
+    - https://github.com/duwnstj
