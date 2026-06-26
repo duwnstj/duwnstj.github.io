@@ -47,8 +47,9 @@ defaults:
 
 comments:
   active: giscus
+  provider: giscus
   giscus:
-    repo: duwnstj/duwnstj12.github.io
+    repo: "duwnstj/duwnstj12.github.io"
     repo_id: "R_kgDOTFiM8w"
     category: "Announcements"
     category_id: "DIC_kwDOTFiM884C_6hT"
