@@ -53,9 +53,9 @@ comments:
     category: "Announcements"
     category_id: "DIC_kwDOTFiM884C_6hT"
     mapping: pathname
-    strict: 0
-    reactions_enabled: 1
-    emit_metadata: 0
+    strict: '0'
+    reactions_enabled: '1'
+    emit_metadata: '0'
     input_position: bottom
     theme: preferred_color_scheme
     lang: ko
