@@ -66,3 +66,13 @@ social:
   email: duwnstj12@naver.com
   links:
     - https://github.com/duwnstj
+
+seo:
+  # 구글 서치 콘솔 연동 코드
+  google_site_verification: '여기에_구글_검색_인증_코드를_넣으세요'
+  # 네이버 서치어드바이저 연동 코드
+  naver_site_verification: '여기에_네이버_검색_인증_코드를_넣으세요'
+
+google_analytics:
+  # 구글 애널리틱스 측정 ID (G-XXXXXXXXXX)
+  id: '여기에_GA_측정_ID를_넣으세요'

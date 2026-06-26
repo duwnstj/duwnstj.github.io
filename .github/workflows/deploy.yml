@@ -25,6 +25,10 @@ jobs:
         with:
           ruby-version: '3.1' # Ubuntu 컨테이너에 Ruby 3.1 설치
           bundler-cache: true # 빌드 속도 향상을 위한 캐시
+      - name: Run Markdown Linter
+        uses: DavidAnson/markdownlint-cli2-action@v15
+        with:
+          globs: '_posts/**/*.md'
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
@@ -45,3 +49,12 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Send Slack Notification
+        if: always()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SLACK_COLOR: ${{ job.status == 'success' && 'good' || 'danger' }}
+          SLACK_MESSAGE: 'GitHub Pages Deployment Status: ${{ job.status }}'
+          SLACK_TITLE: 'Blog Deployment'
+          SLACK_USERNAME: 'DevOpsBot'
