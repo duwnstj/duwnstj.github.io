@@ -16,8 +16,34 @@ plugins:
   - jekyll-paginate
   - jekyll-redirect-from
   - jekyll-archives
+  - jekyll-sitemap
 
 paginate: 10
+
+avatar: https://github.com/duwnstj.png
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      category: "Tech Log"
+
+comments:
+  active: giscus
+  giscus:
+    repo: duwnstj/duwnstj12.github.io
+    repo_id: "" # TODO: Giscus 설정 후 발급받는 ID 입력
+    category: "Comments"
+    category_id: "" # TODO: Giscus 설정 후 발급받는 ID 입력
+    mapping: pathname
+    strict: 0
+    reactions_enabled: 1
+    emit_metadata: 0
+    input_position: bottom
+    theme: preferred_color_scheme
+    lang: ko
 
 social:
   name: Junseo Yeo
