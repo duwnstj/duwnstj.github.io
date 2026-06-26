@@ -1,7 +1,9 @@
 ---
-# the default layout is 'page'
+layout: page
+title: About
 icon: fas fa-info-circle
 order: 4
+permalink: /about/
 ---
 
 ## 👨‍💻 준서 (Junseo Yeo)
