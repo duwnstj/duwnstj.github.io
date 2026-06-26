@@ -1,0 +1,8 @@
+title: 준서의 클라우드/DevOps 블로그
+author: Junseo Yeo
+email: your-email@example.com
+description: >-
+  AWS, DevOps, FinOps 및 트러블슈팅 기록을 남기는 포트폴리오 블로그입니다.
+theme: minima
+plugins:
+  - jekyll-feed
