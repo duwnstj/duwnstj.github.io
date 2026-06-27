@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[네트워크 핵심] 서브넷 마스크 놔두고 왜 '와일드카드 마스크'를 쓸까? (feat. 0.0.0.3의 비밀과 비트 연산)"
-date: 2026-06-27 17:35:00 +0900
+date: 2026-06-27 17:00:00 +0900
 categories: [Network, CCNA]
 tags: [network, ospf, wildcardmask, acl, routing, security, troubleshooting]
 ---
