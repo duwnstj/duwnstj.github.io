@@ -32,3 +32,6 @@
 - **`2026-07-02-devops-finops-cloudwatch-architecture.md`**
   - **주제:** 1GB 프리티어 EC2 OOM 해결, CloudWatch Agent를 통한 메모리 모니터링, IAM Role 적용 및 SNS Slack 알람 연동.
   - **참고:** 향후 배포 파이프라인이나 모니터링 심화 주제가 들어오면 이 글과 연관지어 병합/시리즈물 분할을 고려할 것.
+- **`2026-07-02-vpc-lambda-slack-alarm.md`**
+  - **주제:** 망 분리 기초, NAT Gateway 비용 우회(FinOps) Public Subnet 아키텍처, CloudWatch->SNS->Lambda->Slack 웹훅 연동.
+  - **참고:** 이전 글(CloudWatch)과 하나의 큰 시리즈(Observability 파이프라인)로 이어지며, 다음 단계로 Terraform 도입 글과 연결됨.
