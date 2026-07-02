@@ -4,6 +4,7 @@ title: "기본 VPC를 버리다: 퍼블릭/프라이빗 망 분리부터 Lambda 
 date: 2026-07-02 12:30:00 +0900
 categories: [DevOps, AWS, FinOps, Serverless]
 tags: [VPC, Subnet, Lambda, SNS, CloudWatch, SlackWebhook]
+mermaid: true
 ---
 
 ## 🚀 면접관을 위한 3줄 요약 (STAR-F)
