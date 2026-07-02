@@ -75,7 +75,7 @@ SNS에 HTTPS로 슬랙 웹훅 URL을 그대로 박아 넣었더니 아무런 알
 
 이를 해결하기 위해 중간에 **AWS Lambda(서버리스 번역기)**를 도입했다. SNS가 Lambda를 찌르면, Lambda가 파이썬 코드로 데이터를 가공해 슬랙에 던져주는 파이프라인이다!
 
-~~~python
+{% highlight python %}
 # lambda-sns-to-slack.py (핵심 로직)
 import urllib.request, json, os
 
@@ -96,7 +96,7 @@ def lambda_handler(event, context):
     )
     urllib.request.urlopen(req)
     return {"status": 200, "message": "Success"}
-~~~
+{% endhighlight %}
 
 결과는? **대성공.** 
 메모리 테스트 임계값(10%)을 넘기자마자, 슬랙 봇이 정확하게 알람을 뱉어냈다! 🎉
