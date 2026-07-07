@@ -2,7 +2,7 @@
 layout: post
 title: "[1편] 원시적 SSH 배포를 넘어: CodeDeploy 기반 무중단 배포(In-Place) 파이프라인 구축기"
 date: 2026-07-07 14:00:00 +0900
-categories: [DevOps, CI/CD, AWS]
+categories: [DevOps, CI/CD]
 tags: [CodeDeploy, GitHubActions, InPlace, AutoScalingGroup, Terraform]
 mermaid: true
 ---

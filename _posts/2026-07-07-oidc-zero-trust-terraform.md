@@ -2,7 +2,7 @@
 layout: post
 title: "[2편] 해킹 확률 0%에 도전하다: OIDC Zero-Trust 파이프라인과 Terraform 찌꺼기 철거기"
 date: 2026-07-07 14:10:00 +0900
-categories: [DevOps, Security, Terraform]
+categories: [DevOps, CI/CD]
 tags: [OIDC, ZeroTrust, AWS, FinOps, SRE]
 mermaid: true
 ---
