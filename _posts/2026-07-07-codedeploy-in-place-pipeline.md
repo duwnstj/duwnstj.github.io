@@ -18,13 +18,15 @@ mermaid: true
 ## 2. Architecture Evolution (진화 과정)
 
 ```mermaid
-graph TD
+graph LR
     subgraph vpc_old["As-Is (원시적 SSH/SSM 배포)"]
+        direction TB
         G1["GitHub Actions"] -- "SSM 명령어 하달" --> EC2_Old["EC2 (서버 중단 발생)"]
         EC2_Old -- "git pull & 쉘 스크립트" --> EC2_Old
     end
 
     subgraph vpc_new["To-Be (CodeDeploy 생명주기 관리)"]
+        direction TB
         G2["GitHub Actions"] -- "zip 업로드" --> S3["Deploy Bucket"]
         S3 -. "트리거" .-> CD["AWS CodeDeploy"]
         CD -- "1. ApplicationStop" --> ASG["Auto Scaling Group"]

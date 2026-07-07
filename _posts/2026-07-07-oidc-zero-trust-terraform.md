@@ -20,13 +20,15 @@ mermaid: true
 ## 2. Architecture Evolution (진화 과정)
 
 ```mermaid
-graph TD
+graph LR
     subgraph asis["As-Is (영구 키 하드코딩 보안 취약)"]
+        direction TB
         G1["GitHub Actions"] -- "영구 Access Key 보관" --> IAM_User["AWS IAM User"]
         IAM_User -- "권한 탈취 시 리스크 무한대" --> AWS_All["모든 AWS 자원"]
     end
 
     subgraph tobe["To-Be (OIDC Zero-Trust)"]
+        direction TB
         G2["GitHub Actions"] -- "1. OIDC 일회성 토큰 요청" --> AWS_OIDC["AWS IAM Identity Provider"]
         AWS_OIDC -- "2. GitHub 검증 (Thumbprint)" --> G2
         AWS_OIDC -- "3. 임시 AssumeRole 권한 부여" --> G2
