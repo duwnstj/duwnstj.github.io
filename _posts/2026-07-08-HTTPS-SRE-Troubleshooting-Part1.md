@@ -18,8 +18,7 @@ tags: [AWS, Terraform, SRE, Troubleshooting, DNS, ACM]
 - 빈 깡통 EC2에 매번 스크립트로 설치(Mutable)하는 방식의 한계를 깨닫고 불변 인프라(Immutable Infrastructure) 아키텍처로 진화할 토대를 마련했습니다.
 
 ## 2. 아키텍처 진화 (Architecture Evolution)
-1. **모놀리식(Monolithic) 분리**: 블로그 환경과 실습 환경을 분리하고, `Blog_Queue`를 통한 메시지 큐(MSA) 패턴 도입.
-2. **인프라와 앱 배포의 Lifecycle 철저 분리**: Terraform은 오직 '깡통 뼈대'만, DB 스키마는 Flyway가, 도커 실행 권한은 CodeDeploy가 전담하는 완벽한 책임 분리.
+- **인프라와 앱 배포의 Lifecycle 철저 분리**: Terraform은 오직 '깡통 뼈대'만, DB 스키마는 Flyway가, 도커 실행 권한은 CodeDeploy가 전담하는 완벽한 책임 분리.
 
 ## 3. Deep Dive: DNS 위임과 글로벌 전파 지연 (Taint & Replace)
 본격적으로 HTTPS 환경을 구성하기 위해 가비아의 도메인 네임서버를 AWS Route53으로 위임했습니다. 
