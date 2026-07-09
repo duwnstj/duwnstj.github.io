@@ -62,11 +62,11 @@ fi
 ```mermaid
 graph TD
     subgraph "💡 해결된 배포 디버깅 구조 (파이프 해체 및 권한 일치)"
-        Agent[CodeDeploy Agent<br>root 권한] -- "install.sh 실행" --> Shell[블랙박스 쉘 스크립트]
-        Shell -- "파이프(|) 강제 분해" --> Raw[ssm_raw.txt<br>정상 출력 격리]
-        Shell -- "파이프(|) 강제 분해" --> Err[ssm_error.txt<br>에러 출력 격리]
-        Err -. "Permission Denied 발견!" .-> Chown[chown ubuntu:ubuntu<br>소유권 일치 작업]
-        Chown --> Docker[ubuntu 유저가 안전하게 Docker Run]
+        Agent["CodeDeploy Agent (root 권한)"] -- "install.sh 실행" --> Shell["블랙박스 쉘 스크립트"]
+        Shell -- "파이프(|) 강제 분해" --> Raw["ssm_raw.txt (정상 출력 격리)"]
+        Shell -- "파이프(|) 강제 분해" --> Err["ssm_error.txt (에러 출력 격리)"]
+        Err -. "Permission Denied 발견!" .-> Chown["chown ubuntu (소유권 일치 작업)"]
+        Chown --> Docker["ubuntu 유저가 안전하게 Docker Run"]
     end
     style Err fill:none,stroke:#ff0000,stroke-width:2px,color:#ff0000
     style Chown fill:none,stroke:#009900,stroke-width:2px,color:#009900
