@@ -30,18 +30,18 @@ mermaid: true
 >
 > **💡 나의 깨달음**: "아! 그러니까 디렉토리가 있을 때만 들어가서 컨테이너를 내리는 방어 코드를 짜야겠네!"
 
-```bash
-# 변경 전 (유령 식당 에러 유발)  
-cd /home/ubuntu/cover-challenge  
-sudo docker-compose down  
+{% highlight bash %}
+# 변경 전 (유령 식당 에러 유발)
+cd /home/ubuntu/cover-challenge
+sudo docker-compose down
 
-# 변경 후 (방탄 스크립트 적용)  
-if [ -d "/home/ubuntu/cover-challenge" ]  
-then  
-    cd /home/ubuntu/cover-challenge  
-    sudo docker-compose -f docker-compose.prod.yml down || true  
-fi  
-```
+# 변경 후 (방탄 스크립트 적용)
+if [ -d "/home/ubuntu/cover-challenge" ]
+then
+    cd /home/ubuntu/cover-challenge
+    sudo docker-compose -f docker-compose.prod.yml down || true
+fi
+{% endhighlight %}
 
 ### 🗣️ 소크라테스 디버깅 일지 2: Race Condition과 불변(Immutable) 인프라
 > **🙋‍♂️ 나의 오해**: "EC2 뜰 때 UserData(`init-ec2.sh`)로 도커 깔게 해놨는데, 왜 CodeDeploy가 도커가 없다고 뻗지?"
