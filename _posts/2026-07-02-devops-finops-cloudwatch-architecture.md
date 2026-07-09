@@ -39,7 +39,7 @@ A. 아닙니다. `cloudwatch-config.json`을 통해 설정(Configuration as Code
 ## 💻 [핵심 코드 스니펫] (Next Session Context용)
 
 ### 1. `cloudwatch-config.json`
-```json
+{% highlight json %}
 {
   "agent": {
     "metrics_collection_interval": 60,
@@ -51,11 +51,11 @@ A. 아닙니다. `cloudwatch-config.json`을 통해 설정(Configuration as Code
     }
   }
 }
-```
+{% endhighlight %}
 
 ### 2. `init-ec2.sh` (User Data 용도)
-```bash
+{% highlight bash %}
 wget https://s3.amazonaws.com/amazoncloudwatch-agent/ubuntu/amd64/latest/amazon-cloudwatch-agent.deb
 sudo dpkg -i -E ./amazon-cloudwatch-agent.deb
 sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c file:/home/ubuntu/cover-challenge/cloudwatch-config.json
-```
+{% endhighlight %}

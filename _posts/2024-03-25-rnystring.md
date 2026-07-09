@@ -16,7 +16,7 @@ tags:
 ![](https://velog.velcdn.com/images/duwnstj12/post/4cafaab9-807b-4a11-b629-027f03bbf050/image.png)
 ***
 # 📄문제 풀이 코드
-```java
+{% highlight java %}
 class Solution {
     public String solution(String rny_string) {
         String answer = "";
@@ -24,7 +24,7 @@ class Solution {
         return answer;
     }
 }
-```
+{% endhighlight %}
 ***
 # 문제 풀이
 1. `replace()`함수를 이용한다. replace()함수는 문자를 바꾸고 싶을 때 사용한다.

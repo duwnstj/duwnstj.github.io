@@ -93,7 +93,7 @@ VM 실행 후 root 로그인 → IP 확인:
 ``` bash
 ip addr show
 
-```
+{% highlight text %}
 브리지 어댑터로 연결된 인터페이스의 IP를 사용합니다
 > 📷 명령어 실행 결과 (빨간 네모부분이 브리지 IP)
 ![](https://velog.velcdn.com/images/duwnstj12/post/48814bd3-8154-457d-9b11-6527df104e7e/image.png)
@@ -103,7 +103,7 @@ ip addr show
 ### 3.2 Git Bash에서 SSH 접속
 Windows에서 Git Bash 또는 터미널을 열고:
 
-``` bash
+{% endhighlight %} bash
 ssh centosuser@192.168.219.103
 ```
 - `centosuser`는 설치 시 만든 계정명입니다.

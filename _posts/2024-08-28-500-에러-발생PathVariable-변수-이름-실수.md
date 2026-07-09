@@ -17,14 +17,14 @@ tags:
 Postman으로 댓글 생성 API에 요청을 보냈을 때 예상치 못한 500 에러가 발생했다. 해당 API는 특정 일정(`schedule`)에 댓글을 생성하는 기능을 담당하는데 아래는 문제를 일으킨 기존 코드이다.
 
 ### 기존 코드
-```java
+{% highlight java %}
 @PostMapping("/{id}")
 public ResponseEntity<CommentResponseDto> createComment(@PathVariable Long scheduleId, @RequestBody CommentRequestDto commentRequestDto) {
     CommentResponseDto saveComment = commentService.createComment(scheduleId, commentRequestDto);
 
     return ResponseEntity.ok(saveComment);
 }
-```
+{% endhighlight %}
 이 코드를 분석해보니 문제의 원인을 찾을 수 있었다.
 
 ## 2. 문제 원인 
@@ -37,7 +37,7 @@ public ResponseEntity<CommentResponseDto> createComment(@PathVariable Long sched
 
 ### 수정한 코드
 
-```java
+{% highlight java %}
 @PostMapping("/{scheduleId}")
 public ResponseEntity<CommentResponseDto> createComment(@PathVariable Long scheduleId, @RequestBody CommentRequestDto commentRequestDto) {
     CommentResponseDto saveComment = commentService.createComment(scheduleId, commentRequestDto);
@@ -45,7 +45,7 @@ public ResponseEntity<CommentResponseDto> createComment(@PathVariable Long sched
     return ResponseEntity.ok(saveComment);
 }
 
-```
+{% endhighlight %}
 수정한 내용은 이러하다.
 - URL 경로의 `{id}`를 `{scheduleId}`로 수정하여 메서드 파라미터 이름과 일치시켰다. 
 

@@ -43,7 +43,7 @@ graph LR
 ### 🔥 Issue 1: GitHub 배포 시 AWS 자격 증명 보안 리스크
 기존 방식은 누군가 GitHub 관리자 권한을 탈취하면 AWS의 모든 권한을 영구적으로 획득할 수 있었습니다. 이를 해결하기 위해 테라폼에 OIDC Provider를 연동하고, **'오직 지정된 레포지토리(duwnstj/cover-challenge)'에서만 임시 권한(AssumeRole)을 발급**받을 수 있도록 엄격한 조건을 설정했습니다.
 
-```diff
+{% highlight diff %}
 # .github/workflows/deploy.yml (OIDC 연동 적용)
 - name: Configure AWS Credentials
   uses: aws-actions/configure-aws-credentials@v4
@@ -52,13 +52,13 @@ graph LR
 -   aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 +   role-to-assume: ${{ secrets.AWS_OIDC_ROLE_ARN }}
     aws-region: ap-northeast-2
-```
+{% endhighlight %}
 
 ### 🔥 Issue 2: Terraform Destroy 무한 대기 (유령의 껍데기)
 FinOps 관점에서 인프라를 수시로 삭제(`destroy`)할 때마다 삭제 프로세스가 5분 이상 무한 대기(Hang)에 빠졌습니다. 
 원인을 분석해 보니, 테라폼을 통해 삭제된 'GuardDuty ENI'의 흔적으로, AWS가 자동으로 생성한 **관리형 보안 그룹(SG)**이 VPC 내부에 남아 테라폼의 삭제 작업을 방해하고 있었습니다.
 
-```diff
+{% highlight diff %}
 # terraform/modules/vpc/main.tf (청소 로봇 스크립트 진화)
   $endpointIds = (aws ec2 describe-vpc-endpoints ...)
   aws ec2 delete-vpc-endpoints --vpc-endpoint-ids $idsArray
@@ -71,7 +71,7 @@ FinOps 관점에서 인프라를 수시로 삭제(`destroy`)할 때마다 삭제
 +         aws ec2 delete-security-group --group-id $sg
 +     }
 + }
-```
+{% endhighlight %}
 
 ---
 

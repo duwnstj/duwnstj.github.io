@@ -63,10 +63,10 @@ Docker로 컨테이너화하기 전,
     - 액세스 키/시크릿 키 발급 후 CSV로 저장
 3. **로컬 CLI 인증 등록**
     
-    ```bash
+    {% highlight bash %}
     aws configure
     
-```
+{% endhighlight %}
     
     - Access Key / Secret Key / Region / Output Format 입력
     - 저장 위치: `~/.aws/credentials`, `~/.aws/config`
@@ -101,11 +101,11 @@ Docker로 컨테이너화하기 전,
 
 **실행 모듈 설정**
 
-```text
+{% highlight text %}
 bootJar.enabled = true
 jar.enabled = false
 
-```
+{% endhighlight %}
 > 실행 가능한 JAR을 만들기 위해 bootJar를 활성화합니다.
 > 
 > 
@@ -118,26 +118,26 @@ jar.enabled = false
 
 실행 모듈 `module-owner` 기준
 
-```bash
+{% highlight bash %}
 ./gradlew build
 
-```
+{% endhighlight %}
 - 산출물: `module-owner/build/libs/module-owner-0.0.1-SNAPSHOT.jar`
 
 ---
 
 ### ☁️ S3 업로드
 
-```bash
+{% highlight bash %}
 aws s3 cp module-owner/build/libs/module-owner-0.0.1-SNAPSHOT.jar s3://shoesorder-artifacts/
 
-```
+{% endhighlight %}
 업로드 결과 확인:
 
-```bash
+{% highlight bash %}
 aws s3 ls s3://shoesorder-artifacts/
 
-```
+{% endhighlight %}
 ✅ 정상 업로드 완료
 
 ![](https://velog.velcdn.com/images/duwnstj12/post/8849446f-561c-4ccb-bd2f-d561666de401/image.png)
@@ -148,12 +148,12 @@ aws s3 ls s3://shoesorder-artifacts/
 
 ### ☕ Java 설치
 
-```bash
+{% highlight bash %}
 sudo apt update -y
 sudo apt install -y openjdk-17-jdk
 java -version
 
-```
+{% endhighlight %}
 > java 명령어 사용을 위해 JDK 17을 설치합니다.
 > 
 
@@ -161,20 +161,20 @@ java -version
 
 ### 📂 애플리케이션 디렉터리 구성
 
-```bash
+{% highlight bash %}
 mkdir -p /home/ubuntu/app
 aws s3 cp s3://shoesorder-artifacts/module-owner-0.0.1-SNAPSHOT.jar /home/ubuntu/app/
 ls -lh /home/ubuntu/app
 
-```
+{% endhighlight %}
 ---
 
 ### ▶ 애플리케이션 실행
 
-```bash
+{% highlight bash %}
 java -jar /home/ubuntu/app/module-owner-0.0.1-SNAPSHOT.jar
 
-```
+{% endhighlight %}
 - 포트: `application.yml` 설정 기준 (예: `server.port=8081`)
 - 접속: `http://<EC2_Public_IP>:8081`
 
@@ -192,12 +192,12 @@ java -jar /home/ubuntu/app/module-owner-0.0.1-SNAPSHOT.jar
 
 ### ⚠️ DB 연결 실패 로그
 
-```bash
+{% highlight bash %}
 Communications link failure
 Connection refused
 Unable to determine Dialect without JDBC metadata
 
-```
+{% endhighlight %}
 ### 원인 분석
 
 - DB 설정이 `127.0.0.1` (로컬)로 되어 있음

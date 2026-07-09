@@ -18,30 +18,30 @@ categories:
 Spring Boot 프로젝트 루트 폴더에서 서버를 가동하려 했으나 실행 파일이 아예 없었다.
 
 
-```bash
+{% highlight bash %}
 $ ./gradlew bootRun
 -bash: ./gradlew: No such file or directory
-```
+{% endhighlight %}
 ### 🚨 에러 2. 로컬 빌드 엔진(Gradle)의 부재
 
 누락된 래퍼를 생성하기 위해 `gradle wrapper` 명령을 날렸으나, 내 로컬 환경(WSL/Windows)에 Gradle 자체가 없었다.
 
 
-```bash
+{% highlight bash %}
 $ gradle wrapper
 Command 'gradle' not found, but can be installed with:
 apt install gradle
-```
+{% endhighlight %}
 ### 🚨 에러 3. 도커 데몬(Docker Daemon) 미구동
 
 로컬에 억지로 Gradle을 수동 설치하는 대신 Docker를 이용해 우회하려 했으나, 배후의 도커 엔진이 깨어나 있지 않았다.
 
 
 
-```PowerShell
+{% highlight PowerShell %}
 PS C:\> docker run --rm gradle:8.7.0-jdk17 gradle wrapper
 docker: error during connect: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
-```
+{% endhighlight %}
 ## 2. 원인 분석 및 의심 범주 (Analysis)
 
 ### 🔍 의심 범주 1: 환경 격리 및 이식성 훼손 위험
@@ -62,9 +62,9 @@ Docker Desktop 엔진을 깨운 후, PowerShell에서 아래 명령어를 실행
 
 
 
-```PowerShell
+{% highlight PowerShell %}
 docker run --rm -v "${PWD}:/home/gradle/project" -w /home/gradle/project gradle:8.7.0-jdk17 gradle wrapper
-```
+{% endhighlight %}
 이 명령어는 호스트(Windows)와 컨테이너(Linux)라는 두 개의 서로 다른 세계관을 연결하는 포탈(워프 게이트)을 여는 핵심 인프라 메커니즘을 담고 있다. 각 옵션의 내부 작동 원리는 다음과 같다.
 
 - **`v "${PWD}:/home/gradle/project"` (볼륨 마운트):** 내 실제 Windows PC의 현재 폴더 경로(`"${PWD}"`)와 `gradle` 공식 이미지(리눅스 기반) 내부에 기본적으로 존재하는 작업 폴더인 `/home/gradle/project`를 실시간 거울처럼 동기화(마운트)한다. 내 호스트 PC에는 저 리눅스 경로가 없지만, 컨테이너가 켜지는 순간 도커 엔진이 두 공간 사이에 실시간 포탈을 생성한다.
@@ -82,7 +82,7 @@ docker run --rm -v "${PWD}:/home/gradle/project" -w /home/gradle/project gradle:
 
 
 
-```Dockerfile
+{% highlight Dockerfile %}
 # Stage 1: Build Stage (무거운 빌드 도구가 포함된 방)
 FROM gradle:8.7.0-jdk17 AS builder
 WORKDIR /build
@@ -99,7 +99,7 @@ WORKDIR /app
 COPY --from=builder /build/build/libs/*.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
-```
+{% endhighlight %}
 - **원리:** 컴파일을 수행하는 1번 방(`builder`)의 수백 MB짜리 Gradle 빌드 찌꺼기들을 과감히 버리고, 2번 방(`alpine` 초경량 리눅스 환경)에는 단 몇십 MB짜리 실행 알맹이(`app.jar`)만 이주시켜 **최종 이미지 용량을 최소화**했다.
 - **결과:** `docker build -t cover-challenge:1.0 .` 명령을 통해 슬림하고 압축된 첫 도커 이미지 빌드에 성공했다.
 
@@ -111,9 +111,9 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 
 
 
-```PowerShell
+{% highlight PowerShell %}
 docker run -d -p 8081:8080 --name my-test-app cover-challenge:1.0
-```
+{% endhighlight %}
 - **원리:** 각 컨테이너 내부 웹 사이트(Spring Boot)는 독립된 방에 있으므로 똑같이 내부 포트 `:8080`을 써도 충돌하지 않는다. 대신 외부와 통하는 호스트 PC의 문을 `8081:`로 다르게 열어주어 진입로를 분리했다.
 - **결과:** 두 개의 컨테이너가 충돌 없이 동시에 정상 구동되었다.
 

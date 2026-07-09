@@ -25,14 +25,14 @@ tags:
     systemctl enable httpd
   SHELL
 end
-```
+{% highlight text %}
 📌 위 예시는 **VM 생성 시 Apache 웹 서버(httpd)를 자동 설치 및 실행**하도록 설정한 코드입니다.
 
 ---
 ## 3. VM 생성 시 프로비저닝 실행 (`vagrant up`)
-``` bash
+{% endhighlight %} bash
 vagrant up
-```
+{% highlight text %}
 - VM이 처음 생성될 때 `provision` 블록에 정의된 명령어가 자동 실행됩니다.
 - 만약 VM이 이미 생성되어 있다면, `up` 시에는 **프로비저닝이 재실행되지 않습니다**.
 
@@ -40,10 +40,10 @@ vagrant up
 
 ## 4. 실행된 명령어 결과 확인 (파일 출력 예시)
 예를 들어 Apache 웹서버가 제대로 설치되었는지 확인하려면 다음 명령어를 실행합니다:
-``` bash
+{% endhighlight %} bash
 cat /etc/os-release
 systemctl status httpd
-```
+{% highlight text %}
 - systemctl status httpd로 웹서버 실행 여부를 확인할 수 있습니다.
 - 브라우저에서 http://localhost:8080 (포트 포워딩 시) 접속해도 확인 가능합니다.
 
@@ -51,12 +51,12 @@ systemctl status httpd
 
 ## 5. 기존 VM에서 프로비저닝 다시 실행하기
 - 이미 실행 중인 VM에서 프로비저닝을 다시 실행하려면:
-``` bash
+{% endhighlight %} bash
 vagrant provision
 
-```
+{% highlight text %}
 - 또는 `up` 명령어와 함께 옵션을 붙여 실행할 수도 있습니다:
-``` bash
+{% endhighlight %} bash
 vagrant up --provision
 
 ```

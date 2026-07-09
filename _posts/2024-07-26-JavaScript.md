@@ -92,14 +92,14 @@ tags:
 
      **코드 예시 :**
 
-   ```html
+   {% highlight html %}
    <body>
      <!-- HTML 코드 -->
      <script>
        console.log("자바 스크립트 공부");
      </script>
    </body>
-```
+{% endhighlight %}
 
 2. 외부 자바 스크립트 파일과 연결하기
 
@@ -109,9 +109,9 @@ tags:
    - 자바스크립트 코드를 HTML 문서와 분리하여 별도의 파일로 작성하면 코드의 가독성이 향상될 수 있다.<br><br>
      **코드 예시 :**
 
-```text
+{% highlight text %}
    <script src ="scriptstart.js"></script>
-```
+{% endhighlight %}
 
 ## `<script>` 위치의 중요성
 
@@ -127,25 +127,25 @@ tags:
 
    - 코딩 예시:
 
-   ```html
+   {% highlight html %}
    <head>
      <script src="script.js"></script>
    </head>
    <body>
      <!-- 페이지 콘텐츠 -->
    </body>
-```
+{% endhighlight %}
 
    - **장점** : 자바스크립트 파일이 일찍 로드되어 DOM이 완전히 로드되기 전에 스크립트가 준비된다.
    - **단점** : 자바스크립트 파일 로딩이 완료 될때까지 HTML 렌더링이 차단될 수 있어,페이지 로딩속도가 느려질 수 있다.
 
 2. `<body>`태그 하단
-   ```html
+   {% highlight html %}
    <body>
      <!--페이지 콘텐츠 -->
      <script src="script.js"></script>
    </body>
-```
+{% endhighlight %}
 
 - **장점**: HTML이 모두 렌더링된 후에 자바스크립트 파일이 로드되므로, 페이지 로딩이 느려지지 않는다.
 - **단점**: 자바스크립트가 필요한 요소들을 초기화하거나 이벤트 리스너를 설정할때 약간의 지연이 발생할 수 있다.

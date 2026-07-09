@@ -53,7 +53,7 @@ tags: [devops, cicd, githubactions, seo, jekyll, chirpy]
 * **원인:** 오픈소스 테마가 업데이트되면서 내부 스키마 구조가 변경된 것이 원인이었습니다.
 * **해결:** 테마 문서를 추적하여 아래와 같이 계층 구조로 YAML 설정을 리팩토링했습니다.
 
-```yaml
+{% highlight yaml %}
 # 구버전 방식 (무시됨)
 # google_analytics: "G-XXXXXXXXXX"
 
@@ -61,7 +61,7 @@ tags: [devops, cicd, githubactions, seo, jekyll, chirpy]
 analytics:
   google:
     id: "G-XXXXXXXXXX"
-```
+{% endhighlight %}
 
 ---
 

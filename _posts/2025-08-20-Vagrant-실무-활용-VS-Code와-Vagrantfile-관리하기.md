@@ -15,7 +15,7 @@ Vagrant.configure("2") do |config|
   # VM 설정 정의
 end
 
-```
+{% highlight text %}
 - `#` 기호를 사용하여 주석을 추가할 수 있으며, 실험 중인 설정을 관리할 때도 유용합니다.
 
 ---
@@ -46,33 +46,33 @@ end
 
 변경 사항 반영:
 
-``` bash
+{% endhighlight %} bash
 vagrant reload
-```
+{% highlight text %}
 VM 상태 확인:
 
-``` bash
+{% endhighlight %} bash
 vagrant status
-```
+{% highlight text %}
 ---
 ## 5. **여러 VM 디렉토리 관리하기**
 - VM을 프로젝트별로 관리하는 것이 일반적입니다.
   - 예시 디렉토리 구조:
   
-``` markdown
+{% endhighlight %} markdown
 vagrant-vms/
 ├── centos/
 │   └── Vagrantfile
 └── ubuntu/
     └── Vagrantfile
 
-```
+{% highlight text %}
 - 전역 상태 확인:
-``` bash
+{% endhighlight %} bash
 vagrant global-status
-```
+{% highlight text %}
 - 오래된 캐시 정리:
-```text
+{% endhighlight %}text
 vagrant global-status --prune
 
 ```
