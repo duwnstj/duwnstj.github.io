@@ -24,22 +24,24 @@ tags: [aws, codedeploy, github-actions, sre, troubleshooting, ci-cd]
 
 GitHub Actions 파이프라인을 구축하자마자 마주친 첫 번째 난관은 S3 업로드 권한이었습니다.
 
-![GitHub Actions S3 Upload Fail](/assets/img/github_actions_s3_upload_fail.png)
-
 > [!WARNING]
-> 빌드까지는 완벽했으나, AWS S3로 아티팩트를 밀어 넣는 단계(Upload to S3)에서 권한(IAM) 문제로 새빨간 에러를 뿜어낸 Actions의 모습입니다.
+> 빌드까지는 완벽했으나, AWS S3로 아티팩트를 밀어 넣는 단계(Upload to S3)에서 권한(IAM) 문제로 새빨간 에러를 뿜어냈습니다.
 
-IAM Role과 OIDC(OpenID Connect) 트러스트 관계를 샅샅이 뒤져 권한 정책을 매핑함으로써 이 구간을 힘겹게 뚫어냈습니다.
+이 문제는 IAM Role과 OIDC(OpenID Connect) 트러스트 관계를 샅샅이 뒤져 권한 정책을 매핑함으로써 힘겹게 뚫어냈습니다. 단순 Access Key 발급이 아닌 OIDC를 통한 보안 강화를 이뤄낸 것에 의의가 큽니다.
 
 ### 🎯 SSM Parameter Store 연동 성공
 
-비밀번호나 DB URL 같은 민감한 정보는 소스코드에 절대 하드코딩하지 않고, AWS Systems Manager(SSM) Parameter Store에서 런타임에 동적으로 주입받도록 설계했습니다.
+비밀번호나 DB URL 같은 민감한 정보는 소스코드에 절대 하드코딩하지 않고, AWS Systems Manager(SSM) Parameter Store에서 런타임에 동적으로 주입받도록 설계했습니다. 수많은 실패를 딛고 초록색 체크마크(성공)를 띄워낸 파이프라인의 흐름은 다음과 같습니다.
 
-![GitHub Actions SSM Parameter Save Success](/assets/img/github_actions_ssm_parameter_save_success.png)
-*GitHub Actions 워크플로우 내에서 AWS SSM Parameter Store에 중요 환경 변수들이 안전하게 주입(Save) 및 로드되는 성공 화면입니다.*
-
-![GitHub Actions Workflow Runs](/assets/img/github_actions_workflow_runs.png)
-*수많은 실패(빨간색 x)를 딛고 마침내 초록색 체크마크(성공)를 띄워낸 눈물겨운 전체 워크플로우 런 기록입니다.*
+```mermaid
+graph LR
+    A[GitHub Push] --> B(GitHub Actions)
+    B -->|1. Java Build| C(JAR / Dockerfile)
+    B -->|2. Get Secrets| D[AWS SSM Parameter Store]
+    B -->|3. Upload| E[(AWS S3)]
+    B -->|4. Trigger| F[AWS CodeDeploy]
+    style F fill:#f96,stroke:#333,stroke-width:2px
+```
 
 ---
 
@@ -51,17 +53,36 @@ GitHub Actions 파이프라인을 무사히 통과하여 최종 배포 에이전
 
 > [!CAUTION]
 > **증상 (Race Condition)**
+> AWS 콘솔 상에서는 Event들이 Succeeded로 보이지만, 실제 스크립트 실행(ApplicationStart) 로그를 까보면 도커 컨테이너가 뻗어버린 기만적인 배포 실패 상황이 발생했습니다.
 > 이전 배포의 불량 스크립트가 실행되거나, 환경 변수(`.env`) 파일이 생성되기도 전에 도커 배포 스크립트가 질주하여 `grep` 에러가 발생하며 서버가 뻗어버렸습니다.
 
-![CodeDeploy 배포 실패 로그](/assets/img/codedeploy_success.png)
-*AWS 콘솔 상에서는 Event들이 Succeeded로 보이지만, 실제 스크립트 실행(ApplicationStart) 로그를 까보면 도커 컨테이너가 뻗어버린 기만적인 배포 실패 화면입니다.*
+이 Race Condition 상황을 Mermaid로 시각화해 보겠습니다.
 
-![CodeDeploy 실패 상세 원인](/assets/img/codedeploy_success_detail.png)
-*상세 로그 분석 결과, .env 파일 생성 타이밍이 꼬이면서 환경 변수 값이 누락된 채 grep 명령어가 실행되어 터져버린 현장을 포착했습니다.*
+```mermaid
+sequenceDiagram
+    participant CD as CodeDeploy Agent
+    participant EC2 as EC2 Instance
+    
+    rect rgb(255, 200, 200)
+        Note over CD, EC2: 실패하는 구조 (Race Condition)
+        CD->>EC2: 1. 기존 스크립트 찌꺼기 실행
+        CD->>EC2: 2. Docker Run (환경변수 주입 전!)
+        EC2-->>CD: grep 에러 및 컨테이너 사망
+        CD->>EC2: 3. .env 파일 뒤늦게 생성
+    end
+    
+    rect rgb(200, 255, 200)
+        Note over CD, EC2: 해결된 구조 (Lifecycle 분리)
+        CD->>EC2: 1. BeforeInstall (로컬 캐시 초기화)
+        CD->>EC2: 2. init-ec2.sh (.env 생성 대기)
+        CD->>EC2: 3. install.sh (정확한 타이밍에 Docker Run)
+        EC2-->>CD: 정상 구동 완료
+    end
+```
 
 > [!TIP]
 > **해결책**
-> `/opt/codedeploy-agent/deployment-root`에 찌들어 있는 CodeDeploy의 악랄한 로컬 캐시 구조를 파악했습니다. 배포의 Lifecycle을 철저히 분리하여, 패키지 설치를 담당하는 `init-ec2.sh`와 실제 실행 권한을 가진 `install.sh`의 타이밍을 엄격하게 통제했습니다.
+> `/opt/codedeploy-agent/deployment-root`에 찌들어 있는 CodeDeploy의 악랄한 로컬 캐시 구조를 파악했습니다. 배포의 Lifecycle을 철저히 분리하여, 패키지 설치를 담당하는 `init-ec2.sh`와 실제 실행 권한을 가진 `install.sh`의 타이밍을 엄격하게 통제하여 꼬인 흐름을 정상화했습니다.
 
 ---
 

@@ -53,11 +53,22 @@ tags: [aws, terraform, sre, troubleshooting, dns, acm]
 > 
 > **💡 나의 Aha-Moment (깨달음)**: "아! 단순히 레코드(포스트잇)를 얹는 게 아니라, 아예 동사무소 소장 자리(트래픽 통제 주권) 자체를 통째로 AWS Route53으로 넘겨야 하는구나!"
 
-결국 'DNS 설정'이 아닌 **'네임서버 설정'** 창에서 4개의 주소를 교체하며 완벽한 주권 이양에 성공했습니다.
+결국 'DNS 설정'이 아닌 **'네임서버 설정'** 창에서 4개의 주소를 교체하며 완벽한 주권 이양에 성공했습니다. 이 과정을 다이어그램으로 시각화하면 다음과 같습니다.
 
-![DNS 권한 위임 현장](/assets/img/gabia_aws_route53_ns_delegation.png)
+```mermaid
+graph TD
+    subgraph "오해 (단순 레코드 추가)"
+        A[가비아 네임서버] -->|A Record 포스트잇| B(내 서버 IP)
+        style A fill:#f9f,stroke:#333,stroke-width:2px
+    end
 
-![HTTPS 성공](/assets/img/custom_domain_https_success.png)
+    subgraph "Aha-Moment: 진정한 권한 위임 (NS 이양)"
+        C[가비아 네임서버 설정] -- "트래픽 주권 통째로 넘김" --> D[AWS Route 53]
+        D -->|AWS에서 완벽 통제| E(EC2 / ALB)
+        D -->|ACM 인증서| F(HTTPS 트래픽)
+        style D fill:#9f9,stroke:#333,stroke-width:2px
+    end
+```
 
 ---
 
