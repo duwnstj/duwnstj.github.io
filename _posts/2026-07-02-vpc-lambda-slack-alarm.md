@@ -49,7 +49,7 @@ graph TD
         IGW["Internet Gateway"]
         subgraph public["Public Subnet (10.0.1.0/24)"]
             SG["Security Group: 80, 443 Only"]
-            EC2["App EC2 Server<br>CloudWatch Agent"]
+            EC2["App EC2 Server (CloudWatch Agent)"]
         end
         IGW <-->|"Route Table (0.0.0.0/0)"| SG
         SG <--> EC2

@@ -72,7 +72,7 @@ graph LR
             PortB["80호실 / Port 80"]
         end
         
-        LB -- "A 공사 중엔 출입 차단" -.-x PortA
+        LB -. "A 공사 중엔 출입 차단 (X)" .-> PortA
         LB -- "모든 손님은 B로 가세요!" --> PortB
     end
 ```

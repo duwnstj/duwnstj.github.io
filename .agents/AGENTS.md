@@ -36,6 +36,7 @@
 - **컨텍스트 최우선 확보**: 새로운 트러블슈팅 블로그 원고를 작성할 때, AI는 추측성으로 글을 쓰지 않는다. 반드시 사용자에게 **"문제가 발생했던 프로젝트의 절대 경로"**를 선제적으로 요구한다.
 - **코드 레벨 분석**: AI는 제공받은 경로의 코드(쉘 스크립트, 테라폼, CI/CD 설정 등)를 직접 읽고(Read), 권한 충돌이나 Race Condition 같은 근본 원인(Root Cause)을 코드를 기반으로 정확히 파악하여 원고에 반영해야 한다.
 
-### 7. [Jekyll Formatting] 코드 블록 렌더링 절대 규칙 (Liquid Tag)
-- **에러 방지**: Jekyll Chirpy 테마 특성상 일반적인 마크다운 백틱(```) 문법을 사용하면 줄바꿈이 뭉개지는 파싱 버그가 발생한다.
-- **Liquid Tag 강제**: 블로그 원고 작성 시 모든 코드 블록은 반드시 Jekyll Liquid Tag 형식인 `{% highlight 언어 %}` 와 `{% endhighlight %}` 쌍을 사용하여 작성해야 한다. (절대 백틱 사용 금지)
+### 7. [Jekyll Formatting] 코드 블록 및 Mermaid 렌더링 절대 규칙
+- **Liquid Tag 강제**: Jekyll Chirpy 테마의 파싱 버그를 방지하기 위해, 모든 코드 블록은 마크다운 백틱(```) 대신 `{% highlight 언어 %}` 와 `{% endhighlight %}` 쌍을 사용해야 한다.
+- **Mermaid Front-matter**: 글 본문에 Mermaid 다이어그램이 포함될 경우, 상단 YAML Front-matter 영역에 반드시 `mermaid: true` 속성을 명시해야 렌더링된다.
+- **Mermaid Label 쿼팅**: 다이어그램의 노드 라벨 안에 공백이나 `<br>` 태그 등 특수문자가 포함될 경우, 반드시 큰따옴표(`" "`)로 묶어 문법 에러를 방지한다. (예: `Node["라벨 텍스트"]`)
