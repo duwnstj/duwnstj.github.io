@@ -14,7 +14,7 @@ mermaid: true
 인프라를 EC2 기반에서 완벽한 도커 기반 Serverless(Fargate)로 마이그레이션하면서, 기존의 CI/CD 파이프라인은 무용지물이 되었습니다. 
 서버리스 환경에서는 EC2처럼 머신 내부에 CodeDeploy 에이전트를 설치할 수 없으므로(Immutable CI/CD), 컨테이너 이미지 자체를 통째로 갈아끼우는 새로운 배포 파이프라인(ECR Push ➔ Task Definition 렌더링 ➔ ECS Service 업데이트)이 필요했습니다.
 하지만 이 과정에서 세 가지 치명적인 장벽에 부딪혔습니다.
-1. **보안의 위협**: GitHub Actions에 AWS Access Key를 복사해 두면, 키 유출 시 해커가 인프라 전체를 장악(Blast Radius)할 수 있는 위험성.
+1. **보안의 위협**: GitHub Actions에 AWS Access Key를 복사해 두면, 키 유출 시 해커가 인프라 전체를 장악할 수 있는 **Blast Radius(보안 사고 시 펀지는 피해 범위. 초기 비밀키 유출 시 IAM 장악 → EC2 침투 → RDS 털림 → 과금 폭탄으로 연센 확산)**를 최소화해야 한다.
 2. **비밀번호 관리**: DB 주소를 평문(`environment`)으로 넘길 경우 `tfstate`와 런타임에 암호가 영구 박제되는 참사.
 3. **닭과 알의 딜레마**: ECR이 비어있으면 ECS 생성 시 무한 재시작 에러가 발생하고, ECS가 없으면 ECR에 배포할 곳이 없는 프로비저닝 병목.
 
@@ -57,10 +57,10 @@ graph TD
 3. **Dummy Image (마네킹) 패턴 도입**
    - 텅 빈 ECR로 인한 무한 재시작 에러를 막기 위해, Terraform에서는 임시로 `nginx:alpine` 마네킹을 세워 건물 사용 승인을 받은 뒤, GitHub Actions가 진짜 애플리케이션 이미지를 갈아끼우는 방식으로 닭과 알의 딜레마를 타파했습니다.
 
-또한, GitHub Actions 환경(ephemeral 러너)에서 발생하는 레이어 캐시 증발 현상으로 인한 빌드 지연을 막기 위해, ECR을 캐시 백엔드로 삼아 `--cache-from`을 활용하는 FinOps 튜닝을 적용했습니다.
+또한, GitHub Actions 환경은 **Ephemeral 러너(작업할 때마다 텔 빈 새 컴퓨터로 시작하는 무상태 실행 환경)**로 동작하기 때문에 로컨 레이어 캐시가 알아서 지워지는 현상을 막기 위해, ECR을 캐시 백엔드로 삼아 `--cache-from`을 활용하는 FinOps 튜닝을 적용했습니다.
 
 ## 4. Resolution & Lesson (결과 및 면접 방어)
 이 과정을 통해 수동 개입이 전혀 필요 없는 보안등급 1티어 수준의 서버리스 CI/CD 파이프라인을 구축했습니다.
 
-- **Security/IAM 관점**: Execution Role과 Task Role을 완벽히 분리하여 최소 권한(Least Privilege) 원칙을 증명했습니다. GitHub Actions가 AWS에 영구적인 백도어(Access Key)를 만들지 않고 OIDC라는 일회용 출입증으로만 통신하도록 Blast Radius(폭발 반경)를 최소화했습니다.
+- **Security/IAM 관점**: **Execution Role(ECS가 컨테이너를 켜기 전에 ECR에서 이미지를 가져오고 SSM에서 비밀번호를 꼼아내는 역할의 IAM Role)**과 **Task Role(컨테이너가 실행된 후 앱이 S3, DynamoDB 등 AWS 서비스에 접근할 때 필요한 권한)**을 완벽히 분리하여 **Least Privilege(필요한 것만, 필요한 만큼만 주는 최소 권한 원칙)** 원칙을 증명했습니다. GitHub Actions가 AWS에 영구적인 백도어(Access Key)를 만들지 않고 OIDC라는 일회용 출입증으로만 통신하도록 해 **Blast Radius(보안 사고 시 피해 범위)**를 최소화했습니다.
 - **FinOps/SRE 관점**: 캐시 백엔드를 ECR로 돌려 GitHub 빌드 시간을 극적으로 단축시켰고, 레시피(ECR)와 주방(ECS)을 분리함으로써 `docker push`만으로는 서버가 배포되지 않는 구조적인 무중단 배포 본질을 체화했습니다.
