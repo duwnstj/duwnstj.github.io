@@ -25,23 +25,20 @@ AI 튜터의 파인만 비유와 예리한 압박 질문을 통해 배포 흐름
 - **튜터의 팩트체크**: SSM에서 값을 읽어오려면 우선 'AWS 인증'이 필요한데, 인증을 위한 열쇠(OIDC ARN)를 인증이 필요한 SSM에서 꺼내려는 순환 참조(Circular Dependency) 무한 루프에 빠지지 않았는가? 또한, 컨테이너가 켜지기도 전에 이미지를 당겨오는 건 누구의 권한인가?
 - **나의 깨달음 (레스토랑 비유와 IAM 분리)**: 아! ECR은 '레시피 창고', ECS는 '매니저', Fargate는 '주방'이구나. 컨테이너가 켜지기 전 SSM(금고)에서 비밀번호를 꺼내고 ECR에서 이미지를 가져오는 건 요리사(Task Role)가 아니라 매니저(Execution Role)다. 금고 열쇠는 반드시 Execution Role에 쥐어줘야 한다! 
 
-{% highlight text %}
 ```mermaid
 graph TD
-    %% 다크모드 호환을 위한 스타일 지정
-    classDef default fill:none,stroke:#888,color:#ddd
-    classDef github fill:none,stroke:#2b3137,stroke-width:2px,color:#ddd
+    classDef github fill:none,stroke:#aaa,stroke-width:2px,color:#ddd
     classDef ecr fill:none,stroke:#f39c12,stroke-width:2px,color:#f39c12
     classDef ecs fill:none,stroke:#e67e22,stroke-width:2px,color:#e67e22
     classDef ssm fill:none,stroke:#2ecc71,stroke-width:2px,color:#2ecc71
 
-    GH("GitHub Actions<br>(OIDC 일회용 토큰)"):::github
-    ECR("Amazon ECR<br>(레시피 창고)"):::ecr
-    SSM("SSM Parameter Store<br>(비밀번호 금고)"):::ssm
-    
-    subgraph "ECS Fargate (레스토랑)"
-        EXEC("주방 매니저<br>[Execution Role]"):::ecs
-        TASK("요리사<br>[Task Role]"):::ecs
+    GH("GitHub Actions OIDC 일회용 토큰"):::github
+    ECR("Amazon ECR 레시피 창고"):::ecr
+    SSM("SSM Parameter Store 비밀번호 금고"):::ssm
+
+    subgraph "ECS Fargate 레스토랑"
+        EXEC("주방 매니저 Execution Role"):::ecs
+        TASK("요리사 Task Role"):::ecs
     end
 
     GH -- "1. Push Image" --> ECR
@@ -50,7 +47,6 @@ graph TD
     EXEC -- "4. Get Secrets" --> SSM
     EXEC -. "5. Run Container" .-> TASK
 ```
-{% endhighlight %}
 
 ## 3. Alternatives & Trade-off (의사결정)
 
