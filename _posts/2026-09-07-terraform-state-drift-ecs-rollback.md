@@ -21,8 +21,8 @@ mermaid: true
 
 ```mermaid
 sequenceDiagram
-    participant TF as 🏗️ Terraform<br/>(기억 장부: v35)
-    participant GHA as 🚀 GitHub Actions<br/>(실제 배포: v36)
+    participant TF as 🏗️ Terraform (기억 장부 v35)
+    participant GHA as 🚀 GitHub Actions (실제 배포 v36)
     participant ECS as 📦 ECS Cluster
     
     TF->>ECS: 1. 초기 인프라 구축 (Task v35 배포)

@@ -21,16 +21,16 @@ mermaid: true
 
 ```mermaid
 flowchart LR
-    Dev[💻 개발자] -->|git push| GHA[🐙 GitHub Actions]
+    Dev["💻 개발자"] -->|git push| GHA["🐙 GitHub Actions"]
     
-    subgraph Shift-Left Security Pipeline
-        GHA --> Build[📦 Docker Build]
-        Build --> Trivy[🛡️ Trivy Scan]
-        Trivy -- "CRITICAL 발견 시" --> Block[❌ 파이프라인 강제 중단 (exit 1)]
+    subgraph "Shift-Left Security Pipeline"
+        GHA --> Build["📦 Docker Build"]
+        Build --> Trivy["🛡️ Trivy Scan"]
+        Trivy -- "CRITICAL 발견 시" --> Block["❌ 파이프라인 강제 중단 (exit 1)"]
     end
     
-    Trivy -- "안전 (Pass)" --> ECR[☁️ AWS ECR Push]
-    ECR --> ECS[🚀 ECS 배포]
+    Trivy -- "안전 (Pass)" --> ECR["☁️ AWS ECR Push"]
+    ECR --> ECS["🚀 ECS 배포"]
 ```
 
 ## 3. Alternatives & Trade-off (의사결정)

@@ -37,7 +37,7 @@ sequenceDiagram
         DB-->>Tomcat: 3. 결과 반환 및 캐시 갱신
     end
     
-    Note left of Tomcat: 99,999명은 락 대기로<br/>스레드를 낭비하지 않음!
+    Note left of Tomcat: 99,999명은 락 대기로 스레드를 낭비하지 않음!
     Tomcat-->>User: 4. 대기열(Fallback) 안내 응답
 ```
 

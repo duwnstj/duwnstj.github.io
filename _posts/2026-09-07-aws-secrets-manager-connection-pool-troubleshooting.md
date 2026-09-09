@@ -27,9 +27,9 @@ Terraform으로 인프라를 구성하고 배포 테스트를 진행했을 때, 
 
 ```mermaid
 sequenceDiagram
-    participant ECS as 📦 ECS Container<br/>(구형 비밀번호 탑재)
-    participant SM as 🔐 Secrets Manager<br/>(비밀번호 자동 변경)
-    participant Hikari as 📦 HikariCP<br/>(커넥션 풀)
+    participant ECS as 📦 ECS Container (구형 비밀번호 탑재)
+    participant SM as 🔐 Secrets Manager (비밀번호 자동 변경)
+    participant Hikari as 📦 HikariCP (커넥션 풀)
     participant RDS as 🗄️ AWS RDS DB
     
     ECS->>SM: 1. 환경변수 주입 (Old_PW)
