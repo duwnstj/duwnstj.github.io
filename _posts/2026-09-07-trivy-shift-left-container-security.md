@@ -56,5 +56,6 @@ Shift-Left 파이프라인을 구축한 후 한 가지 딜레마에 부딪혔습
 **[인프라 트러블슈팅 시리즈]**
 - **1편**: [Terraform State Drift와 ECS 롤백 딜레마 극복기]({% post_url 2026-09-07-terraform-state-drift-ecs-rollback %})
 - **2편**: [AWS Secrets Manager 자동 로테이션과 커넥션 풀 생명주기 불일치 트러블슈팅]({% post_url 2026-09-07-aws-secrets-manager-connection-pool-troubleshooting %})
-- **3편**: [ECS Fargate Spot 무중단 배포와 Redis 분산 락을 활용한 캐시 스탬피드 방어]({% post_url 2026-09-07-fargate-spot-redis-cache-stampede %})
-- **4편**: Trivy를 활용한 Shift-Left 컨테이너 보안 파이프라인 구축 (현재 글)
+- **3편**: [ECS Fargate Spot 비용 최적화와 ALB 무중단 배포 설계]({% post_url 2026-09-07-fargate-spot-hybrid-zero-downtime %})
+- **4편**: [Terraform DB 재생성 에러와 Redis 분산 락을 활용한 캐시 스탬피드 방어]({% post_url 2026-09-07-terraform-db-recreation-cache-stampede %})
+- **5편**: Trivy를 활용한 Shift-Left 컨테이너 보안 파이프라인 구축 (현재 글)
