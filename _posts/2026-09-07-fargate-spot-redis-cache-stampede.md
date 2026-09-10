@@ -57,3 +57,10 @@ ALB `deregistration_delay`를 60초로 튜닝하고 Spring Boot의 `server.shutd
 
 **[면접 방어 및 SRE 인사이트]**
 "아무리 뛰어난 분산 락이라도 대기 시간(waitTime)을 길게 잡으면, 오히려 서버의 스레드 풀을 말라 죽이는 단일 장애점(SPOF)이 될 수 있다"는 사실을 배웠습니다. 빠른 실패(Fail-fast)를 통해 자원을 아끼고, 비즈니스 로직이 아닌 시스템 아키텍처(대기열 UX 등)로 트래픽을 분산시키는 것이 SRE의 진정한 설계 역량임을 깨달았습니다.
+
+---
+**[인프라 트러블슈팅 시리즈]**
+- **1편**: [Terraform State Drift와 ECS 롤백 딜레마 극복기]({% post_url 2026-09-07-terraform-state-drift-ecs-rollback %})
+- **2편**: [AWS Secrets Manager 자동 로테이션과 커넥션 풀 생명주기 불일치 트러블슈팅]({% post_url 2026-09-07-aws-secrets-manager-connection-pool-troubleshooting %})
+- **3편**: ECS Fargate Spot 무중단 배포와 Redis 분산 락을 활용한 캐시 스탬피드 방어 (현재 글)
+- **4편**: [Trivy를 활용한 Shift-Left 컨테이너 보안 파이프라인 구축]({% post_url 2026-09-07-trivy-shift-left-container-security %})

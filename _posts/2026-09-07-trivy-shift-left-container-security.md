@@ -51,3 +51,10 @@ Shift-Left 파이프라인을 구축한 후 한 가지 딜레마에 부딪혔습
 **[면접 방어 및 DevSecOps 인사이트]**
 가장 훌륭한 보안은 애플리케이션 개발 초기 단계(왼쪽)로 보안 책임을 앞당기는 것(Shift-Left)임을 입증했습니다. 
 보안과 비즈니스 속도가 충돌할 때, 스캐너를 끄는 식별 불가능한 타협이 아니라 `.trivyignore`라는 '추적 가능한 부채'로 관리함으로써 엔지니어링의 본질인 유연성을 잃지 않는 법을 배웠습니다.
+
+---
+**[인프라 트러블슈팅 시리즈]**
+- **1편**: [Terraform State Drift와 ECS 롤백 딜레마 극복기]({% post_url 2026-09-07-terraform-state-drift-ecs-rollback %})
+- **2편**: [AWS Secrets Manager 자동 로테이션과 커넥션 풀 생명주기 불일치 트러블슈팅]({% post_url 2026-09-07-aws-secrets-manager-connection-pool-troubleshooting %})
+- **3편**: [ECS Fargate Spot 무중단 배포와 Redis 분산 락을 활용한 캐시 스탬피드 방어]({% post_url 2026-09-07-fargate-spot-redis-cache-stampede %})
+- **4편**: Trivy를 활용한 Shift-Left 컨테이너 보안 파이프라인 구축 (현재 글)

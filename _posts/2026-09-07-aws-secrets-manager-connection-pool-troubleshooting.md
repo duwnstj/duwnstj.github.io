@@ -75,3 +75,10 @@ container_definitions = jsonencode([
 **[면접 방어 및 SRE 인사이트]**
 이번 트러블슈팅을 통해 "환경변수는 컨테이너 기동 시점에 스냅샷처럼 고정된다"는 불변의 원칙을 뼈저리게 배웠습니다. 애플리케이션 내부의 생명주기(HikariCP MaxLifetime)와 인프라의 생명주기(Secrets Manager Rotation)가 어긋날 때 시스템이 어떻게 무너지는지 확인했습니다. 
 장애가 났을 때 단순히 '비밀번호가 틀렸구나'로 넘기지 않고, '왜 1시간 뒤에 틀렸을까?'를 집요하게 파고들어 분산 시스템의 Race Condition(경합 조건)을 규명한 것이 가장 큰 수확이었습니다.
+
+---
+**[인프라 트러블슈팅 시리즈]**
+- **1편**: [Terraform State Drift와 ECS 롤백 딜레마 극복기]({% post_url 2026-09-07-terraform-state-drift-ecs-rollback %})
+- **2편**: AWS Secrets Manager 자동 로테이션과 커넥션 풀 생명주기 불일치 트러블슈팅 (현재 글)
+- **3편**: [ECS Fargate Spot 무중단 배포와 Redis 분산 락을 활용한 캐시 스탬피드 방어]({% post_url 2026-09-07-fargate-spot-redis-cache-stampede %})
+- **4편**: [Trivy를 활용한 Shift-Left 컨테이너 보안 파이프라인 구축]({% post_url 2026-09-07-trivy-shift-left-container-security %})

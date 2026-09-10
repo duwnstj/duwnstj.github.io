@@ -70,3 +70,10 @@ resource "aws_ecs_service" "app" {
 
 **[면접 방어 및 DevOps 인사이트]**
 "IaC 도구는 만능이 아니다"라는 교훈을 얻었습니다. Terraform은 인프라 프로비저닝에 강점이 있고, GitHub Actions(또는 ArgoCD)는 지속적 배포에 강점이 있습니다. 하나의 도구로 모든 것을 통제하려 하기보다, 도구별 장점을 살려 책임을 명확히 분리(Decoupling)하는 것이 진정한 DevOps 엔지니어의 설계 역량임을 깨달았습니다.
+
+---
+**[인프라 트러블슈팅 시리즈]**
+- **1편**: Terraform State Drift와 ECS 롤백 딜레마 극복기 (현재 글)
+- **2편**: [AWS Secrets Manager 자동 로테이션과 커넥션 풀 생명주기 불일치 트러블슈팅]({% post_url 2026-09-07-aws-secrets-manager-connection-pool-troubleshooting %})
+- **3편**: [ECS Fargate Spot 무중단 배포와 Redis 분산 락을 활용한 캐시 스탬피드 방어]({% post_url 2026-09-07-fargate-spot-redis-cache-stampede %})
+- **4편**: [Trivy를 활용한 Shift-Left 컨테이너 보안 파이프라인 구축]({% post_url 2026-09-07-trivy-shift-left-container-security %})
