@@ -1,7 +1,7 @@
 ---
 title: "AI 에이전트 룰 컨텍스트 과부하 트러블슈팅: State Machine 도입기"
 date: 2026-09-22 10:00:00 +0900
-categories: [DevOps, Troubleshooting]
+categories: [AI, Troubleshooting]
 tags: [AI Agent, State Machine, Context Window, Troubleshooting]
 description: "AI 에이전트의 컨텍스트 초과로 발생한 인코딩 장애를 해결하기 위해 State Machine 아키텍처를 도입하여 룰을 모듈화한 과정을 기록합니다."
 mermaid: true
