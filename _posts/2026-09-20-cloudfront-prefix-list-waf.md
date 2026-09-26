@@ -15,7 +15,7 @@ mermaid: true
 
 처음에는 일반적인 웹 서비스 환경을 고려하여, **80포트(HTTP)와 443포트(HTTPS)** 두 곳 모두에 Prefix List를 연결하는 테라폼 코드를 작성했습니다.
 
-```hcl
+{% highlight hcl %}
 # [초기 문제의 코드]
 ingress {
   from_port       = 80
@@ -29,7 +29,7 @@ ingress {
   protocol        = "tcp"
   prefix_list_ids = [data.aws_ec2_managed_prefix_list.cloudfront.id]
 }
-```
+{% endhighlight %}
 
 하지만 `terraform apply`를 실행하자마자 다음과 같은 에러가 발생했습니다.
 `RulesPerSecurityGroupLimitExceeded: The maximum number of rules per security group has been reached.` 
